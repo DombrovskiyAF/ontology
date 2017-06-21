@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1109</width>
+    <height>586</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="push_similarity">
+      <property name="text">
+       <string>Подобие</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTextEdit" name="textEdit">
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1109</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Файл</string>
+    </property>
+    <addaction name="actionOpenDB"/>
+    <addaction name="actionSettings"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuExport">
+    <property name="title">
+     <string>Импорт данных</string>
+    </property>
+    <addaction name="actionImportGost"/>
+    <addaction name="action_DOT"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>Экспорт данных</string>
+    </property>
+    <addaction name="actionExportDOT"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>Помощь</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>Редактирование</string>
+    </property>
+    <addaction name="actionFormTypesShow"/>
+    <addaction name="actionFormNodesShow"/>
+    <addaction name="actionFormEdgesShow"/>
+    <addaction name="actionFormRulesShow"/>
+   </widget>
+   <widget class="QMenu" name="menu_5">
+    <property name="title">
+     <string>Расчёты</string>
+    </property>
+    <addaction name="actionUseRulesFormShow"/>
+    <addaction name="actionTemp"/>
+    <addaction name="actionRollback_DB"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menuExport"/>
+   <addaction name="menu_4"/>
+   <addaction name="menu_5"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionOpenDB"/>
+   <addaction name="actionImportGost"/>
+   <addaction name="actionSettings"/>
+   <addaction name="actionExit"/>
+  </widget>
+  <action name="actionOpenDB">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/Images/images/hd_open.png</normaloff>:/Images/images/hd_open.png</iconset>
+   </property>
+   <property name="text">
+    <string>Открыть БД</string>
+   </property>
+   <property name="toolTip">
+    <string>Открыть базу данных</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/Images/images/my_docs.png</normaloff>:/Images/images/my_docs.png</iconset>
+   </property>
+   <property name="text">
+    <string>Выйти</string>
+   </property>
+   <property name="toolTip">
+    <string>Выйти из программы</string>
+   </property>
+  </action>
+  <action name="actionTestFormTR">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/Images/images/my_docs.png</normaloff>:/Images/images/my_docs.png</iconset>
+   </property>
+   <property name="text">
+    <string>testFormTR</string>
+   </property>
+  </action>
+  <action name="actionImportGost">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/Images/images/add.png</normaloff>:/Images/images/add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Импортданных из ГОСТ</string>
+   </property>
+   <property name="toolTip">
+    <string>Импортданных из ГОСТ</string>
+   </property>
+  </action>
+  <action name="actionFormTypesShow">
+   <property name="text">
+    <string>Типы элементов семантической сети</string>
+   </property>
+   <property name="toolTip">
+    <string>Типы элементов семнтической сети</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="actionFormNodesShow">
+   <property name="text">
+    <string>Концепты</string>
+   </property>
+   <property name="toolTip">
+    <string>Концепты</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionFormEdgesShow">
+   <property name="text">
+    <string>Роли</string>
+   </property>
+   <property name="toolTip">
+    <string>Роли</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionDaf">
+   <property name="text">
+    <string>Daf</string>
+   </property>
+  </action>
+  <action name="actionFormRulesShow">
+   <property name="text">
+    <string>Правила логического вывода</string>
+   </property>
+   <property name="toolTip">
+    <string>Правила логического вывода</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/Images/images/sys_qualifiers.png</normaloff>:/Images/images/sys_qualifiers.png</iconset>
+   </property>
+   <property name="text">
+    <string>Настройки</string>
+   </property>
+   <property name="toolTip">
+    <string>Настройки</string>
+   </property>
+  </action>
+  <action name="actionExportDOT">
+   <property name="text">
+    <string>Экспорт данных в DOT</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>О программе</string>
+   </property>
+   <property name="toolTip">
+    <string>О программе</string>
+   </property>
+  </action>
+  <action name="actionUseRulesFormShow">
+   <property name="text">
+    <string>Логический вывод</string>
+   </property>
+   <property name="toolTip">
+    <string>Логический вывод</string>
+   </property>
+  </action>
+  <action name="actionTemp">
+   <property name="text">
+    <string>temp</string>
+   </property>
+  </action>
+  <action name="action_DOT">
+   <property name="text">
+    <string>Импорт данных из DOT</string>
+   </property>
+  </action>
+  <action name="actionRollback_DB">
+   <property name="text">
+    <string>Rollback DB</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

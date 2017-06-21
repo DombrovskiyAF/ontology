@@ -1,0 +1,1180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SettingsForm</class>
+ <widget class="QDialog" name="SettingsForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>788</width>
+    <height>596</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>700</width>
+    <height>510</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>834</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QListWidget" name="listWidget">
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>20</y>
+     <width>201</width>
+     <height>551</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Экспорт в DOT</string>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Autorun</string>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+   </item>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>10</y>
+     <width>650</width>
+     <height>650</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>650</height>
+    </size>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>Страница</string>
+    </attribute>
+    <widget class="QTreeWidget" name="uzeltree">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>9</y>
+       <width>171</width>
+       <height>431</height>
+      </rect>
+     </property>
+     <column>
+      <property name="text">
+       <string notr="true">Тип узлов</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>10</y>
+       <width>321</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Наименование:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLineEdit" name="lineEdit"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>60</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_5">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Цвет рамки:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="line_color">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>60</y>
+       <width>97</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_6">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Цвет фона:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="back_color">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>110</y>
+       <width>366</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_7">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Представление:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QComboBox" name="figurebox">
+        <property name="maximumSize">
+         <size>
+          <width>405</width>
+          <height>200</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="maxVisibleItems">
+         <number>5</number>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>270</width>
+          <height>500</height>
+         </size>
+        </property>
+        <property name="frame">
+         <bool>true</bool>
+        </property>
+        <property name="modelColumn">
+         <number>0</number>
+        </property>
+        <item>
+         <property name="text">
+          <string>triangle</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/triangle_uzel.PNG</normaloff>:/Images/images/triangle_uzel.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>parallelogram</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/parallelogram_uzel.PNG</normaloff>:/Images/images/parallelogram_uzel.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>folder</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/folder_uzel.PNG</normaloff>:/Images/images/folder_uzel.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>ellipse</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/elipse_uzel.PNG</normaloff>:/Images/images/elipse_uzel.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>circle</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/circle_uzel.PNG</normaloff>:/Images/images/circle_uzel.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>egg</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/egg_uzel.PNG</normaloff>:/Images/images/egg_uzel.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>house</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/house_uzel.PNG</normaloff>:/Images/images/house_uzel.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>plaintext</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/plaintext_uzel.PNG</normaloff>:/Images/images/plaintext_uzel.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>octagon</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/octagon_uzel.PNG</normaloff>:/Images/images/octagon_uzel.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Msquare</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/msquare_uzel.PNG</normaloff>:/Images/images/msquare_uzel.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>polygon</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/polygon_uzel.PNG</normaloff>:/Images/images/polygon_uzel.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>note</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/note_uzel.PNG</normaloff>:/Images/images/note_uzel.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string/>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>340</y>
+       <width>237</width>
+       <height>44</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_8">
+      <item row="1" column="0">
+       <widget class="QPushButton" name="boldfont">
+        <property name="styleSheet">
+         <string notr="true">font: bold 8pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
+        <property name="text">
+         <string>Ж</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Шрифт:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QSpinBox" name="textcont"/>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="italicfont">
+        <property name="styleSheet">
+         <string notr="true">font: italic 8pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
+        <property name="text">
+         <string>К</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QPushButton" name="nodetext_color">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>390</y>
+       <width>261</width>
+       <height>54</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_9">
+      <item row="2" column="0">
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>Добавить узел</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="SaveButton">
+        <property name="text">
+         <string>Сохранить</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Страница</string>
+    </attribute>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>162</x>
+       <y>102</y>
+       <width>85</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Шрифт подписи:</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>162</x>
+       <y>9</y>
+       <width>331</width>
+       <height>67</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="1" column="0" colspan="2">
+       <widget class="QLabel" name="label_10">
+        <property name="text">
+         <string>Подпись ребра:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1" colspan="2">
+       <widget class="QLineEdit" name="edgename"/>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLineEdit" name="edgetext"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>Название:</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>163</x>
+       <y>121</y>
+       <width>237</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <widget class="QPushButton" name="boldfont_2">
+        <property name="styleSheet">
+         <string notr="true">font: bold 8pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
+        <property name="text">
+         <string>Ж</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="italicfont_2">
+        <property name="styleSheet">
+         <string notr="true">font: italic 8pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
+        <property name="text">
+         <string>К</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="font_color">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QSpinBox" name="textcont_2"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>120</y>
+       <width>101</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_4">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_8">
+        <property name="text">
+         <string>Цвет ребра:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="edge_color">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>320</y>
+       <width>272</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_11">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_12">
+        <property name="text">
+         <string>Конец стрелки:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QComboBox" name="comboBox">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>90</height>
+         </size>
+        </property>
+        <property name="maxVisibleItems">
+         <number>5</number>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>200</width>
+          <height>200</height>
+         </size>
+        </property>
+        <item>
+         <property name="text">
+          <string>normal</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/edge/normal.PNG</normaloff>:/Images/images/edge/normal.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>box</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/edge/box.PNG</normaloff>:/Images/images/edge/box.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>crow</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/edge/crow.PNG</normaloff>:/Images/images/edge/crow.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>tee</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/edge/tee.PNG</normaloff>:/Images/images/edge/tee.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>vee</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/edge/vee.PNG</normaloff>:/Images/images/edge/vee.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>halfopen</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/images/edge/halfopen.PNG</normaloff>:/images/edge/halfopen.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>odiamond</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/images/edge/odiamond.PNG</normaloff>:/images/edge/odiamond.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>ediamond</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/images/edge/ediamond.PNG</normaloff>:/images/edge/ediamond.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>invempty</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/images/edge/invempty.PNG</normaloff>:/images/edge/invempty.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>obox</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/images/edge/obox.PNG</normaloff>:/images/edge/obox.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>invodot</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/images/edge/invodot.PNG</normaloff>:/images/edge/invodot.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>inv</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/images/edge/inv.PNG</normaloff>:/images/edge/inv.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>none</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/images/edge/none.PNG</normaloff>:/images/edge/none.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>dot</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/edge/dot.PNG</normaloff>:/Images/images/edge/dot.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>diamond</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/edge/diamond.PNG</normaloff>:/Images/images/edge/diamond.PNG</iconset>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>440</y>
+       <width>272</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_12">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_15">
+        <property name="text">
+         <string>Начало стрелки:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QComboBox" name="start_arrow_box">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>90</height>
+         </size>
+        </property>
+        <property name="maxVisibleItems">
+         <number>5</number>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>200</width>
+          <height>200</height>
+         </size>
+        </property>
+        <item>
+         <property name="text">
+          <string>normal</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/edge/normal.PNG</normaloff>:/Images/images/edge/normal.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>box</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/edge/box.PNG</normaloff>:/Images/images/edge/box.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>crow</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/edge/crow.PNG</normaloff>:/Images/images/edge/crow.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>tee</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/edge/tee.PNG</normaloff>:/Images/images/edge/tee.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>vee</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/edge/vee.PNG</normaloff>:/Images/images/edge/vee.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>halfopen</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/images/edge/halfopen.PNG</normaloff>:/images/edge/halfopen.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>odiamond</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/images/edge/odiamond.PNG</normaloff>:/images/edge/odiamond.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>ediamond</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/images/edge/ediamond.PNG</normaloff>:/images/edge/ediamond.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>invempty</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/images/edge/invempty.PNG</normaloff>:/images/edge/invempty.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>obox</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/images/edge/obox.PNG</normaloff>:/images/edge/obox.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>invodot</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/images/edge/invodot.PNG</normaloff>:/images/edge/invodot.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>inv</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/images/edge/inv.PNG</normaloff>:/images/edge/inv.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>none</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/images/edge/none.PNG</normaloff>:/images/edge/none.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>dot</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/edge/dot.PNG</normaloff>:/Images/images/edge/dot.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>diamond</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/edge/diamond.PNG</normaloff>:/Images/images/edge/diamond.PNG</iconset>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>450</y>
+       <width>105</width>
+       <height>83</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_13">
+      <item row="0" column="0">
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="text">
+         <string>Добавить ребро</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="Add_quant">
+        <property name="text">
+         <string>Добавить квантор</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="text">
+         <string>Сохранить</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>290</y>
+       <width>271</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_14">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_14">
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Название:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="quant_name"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>150</y>
+       <width>341</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_15">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_9">
+        <property name="text">
+         <string>Тип ребра:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QComboBox" name="edgetype">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="maxVisibleItems">
+         <number>4</number>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>270</width>
+          <height>500</height>
+         </size>
+        </property>
+        <item>
+         <property name="text">
+          <string>solid</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/edge/solid.PNG</normaloff>:/Images/images/edge/solid.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>dotted</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/edge/dotted.PNG</normaloff>:/Images/images/edge/dotted.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>bold</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/edge/bold.PNG</normaloff>:/Images/images/edge/bold.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>dashed</string>
+         </property>
+         <property name="icon">
+          <iconset resource="vz.qrc">
+           <normaloff>:/Images/images/edge/dashed.PNG</normaloff>:/Images/images/edge/dashed.PNG</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string/>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>9</y>
+       <width>141</width>
+       <height>541</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_10">
+      <item row="0" column="0">
+       <widget class="QTreeWidget" name="edgestree">
+        <column>
+         <property name="text">
+          <string>Ребра</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_13">
+        <property name="text">
+         <string>Кванторы:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QListWidget" name="quant_list"/>
+      </item>
+     </layout>
+    </widget>
+    <zorder>layoutWidget</zorder>
+    <zorder>layoutWidget</zorder>
+    <zorder>layoutWidget</zorder>
+    <zorder>layoutWidget</zorder>
+    <zorder>layoutWidget</zorder>
+    <zorder>layoutWidget</zorder>
+    <zorder>layoutWidget</zorder>
+    <zorder>layoutWidget</zorder>
+    <zorder>layoutWidget</zorder>
+    <zorder>label_11</zorder>
+   </widget>
+  </widget>
+  <widget class="QTabWidget" name="tab_open_db">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>10</y>
+     <width>591</width>
+     <height>691</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Autorun</string>
+    </attribute>
+    <widget class="QPushButton" name="push_save_setting">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>250</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="check_file">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>30</y>
+       <width>111</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Autorun DB?</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="line_file_name">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>113</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="push_file">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>60</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Select DB</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <zorder>tab_open_db</zorder>
+  <zorder>listWidget</zorder>
+  <zorder>tabWidget</zorder>
+ </widget>
+ <resources>
+  <include location="vz.qrc"/>
+ </resources>
+ <connections/>
+</ui>

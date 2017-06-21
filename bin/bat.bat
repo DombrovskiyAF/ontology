@@ -1,0 +1,1 @@
+iconv.exe -f cp1251 -t utf-8 %1 >temp.dot
