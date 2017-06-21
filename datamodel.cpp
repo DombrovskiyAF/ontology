@@ -1664,19 +1664,6 @@ void DataModel::deleteModel()
 void DataModel::openDB(QWidget *q)
 {
     sdw->show();
-    QFileDialog fd;
-    fd.setParent(q);
-    fd.setDefaultSuffix("db");
-    fd.setWindowTitle("Открыть базу данных");
-    fd.setNameFilter("Базы данных Access (*.mdb)");
-    if (fd.exec() == QDialog::Accepted) {
-        if (fd.selectedFiles().count() > 0) {
-            m_dbName = fd.selectedFiles().at(0);
-            connectDB(m_dbName);
-            createModel();
-            setupView();
-        }
-    }
 }
 
 void DataModel::openDB_fromsettings(QWidget *q,QString nam)
