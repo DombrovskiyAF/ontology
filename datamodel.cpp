@@ -110,35 +110,9 @@ QSettings *DataModel::getSettings()
     return settings;
 }
 
-bool DataModel::insertNode(QString id_node_type,QString node_name,QString brightness,QString status,QString author,QString rem)
-{
-    QSqlQuery query;
-    QString str;
-    QString strF ="INSERT INTO nodes (id_node_type, node_name, brightness, status, author, rem)"
-                              "VALUES(%1, '%2', %3, %4, '%5', '%6');";
-    str = strF.arg(id_node_type)
-            .arg(node_name)
-            .arg(brightness)
-            .arg(status)
-            .arg(author)
-            .arg(rem);
-
-    if (!query.exec(str))
-    {
-        qDebug() << str;
-        qDebug() << "Unable to make insert operation";
-        //QMessageBox::information(0, "SQL INSERT:", query.lastError().text());
-        dataModel->logMessage(query.lastError().text());
-        return false;
-    }
-    else
-    {
-        return true;
-    }
-}
-
 bool DataModel::insertNode(QString id_node_type,QString node_name,QString brightness,QString status,QString author,QString rem, int &idNode)
 {
+    qDebug () << "IN=2";
     QSqlQuery query;
     QString str;
     QString strF ="INSERT INTO nodes (id_node_type, node_name, brightness, status, author, rem)"
@@ -167,35 +141,9 @@ bool DataModel::insertNode(QString id_node_type,QString node_name,QString bright
     }
 }
 
-bool DataModel::insertEdge(QString id_node_src,QString id_edge_type,QString id_node_dst,QString quant_id,QString capacity,QString status,QString isNew)
-{
-    QSqlQuery query;
-    QString str;
-    QString strF ="INSERT INTO edges "
-            "(id_node_src,id_edge_type,id_node_dst,quant_id,capacity,status,isNew) VALUES "
-            "(%1, %2, %3, '%4', %5, %6, %7);";
-    str = strF.arg(id_node_src)
-              .arg(id_edge_type)
-              .arg(id_node_dst)
-              .arg(quant_id)
-              .arg(capacity)
-              .arg(status)
-              .arg(isNew);
-    if (!query.exec(str))
-    {
-        //QMessageBox::information(0, "SQL INSERT:", query.lastError().text());
-        dataModel->logMessage(query.lastError().text());
-        return false;
-    }
-    else
-    {
-        dataModel->m_edges->select();
-        return true;
-    }
-}
-
 bool DataModel::insertEdge(QString id_node_src,QString id_edge_type,QString id_node_dst,QString quant_id,QString capacity,QString status,QString isNew, int &idEdge)
 {
+    qDebug () << "IE=2";
     QSqlQuery query;
     QString str;
     QString strF ="INSERT INTO edges "
@@ -2170,4 +2118,114 @@ int DataModel::AddNode(QString nodeType, QString name, int brigh, int status, QS
     return id;
 }
 */
+
+///////////////////////////////////////////////
+///     По заданию
+///////////////////////////////////////////////
+
+
+void DataModel::insertNodeType(QString name){
+    qDebug () << "insertNodeType";
+    QSqlQuery query;
+    QString str;
+    QString strF ="INSERT INTO node_types (node_type_name) VALUES('%1');";
+    str = strF.arg(name);
+
+    if (!query.exec(str)){
+        QMessageBox::information(0, "SQL INSERT:", query.lastError().text());
+    }
+    else{
+        dataModel->m_nodeTypes->select();
+    }
+}
+
+void DataModel::insertEdgeType(QString src, QString name, QString dst){
+    qDebug () << "insertEdgeType";
+    QSqlQuery query;
+    QString str;
+
+    QString strF ="INSERT INTO edge_types "
+            "(id_node_type_src,edge_name,id_node_type_dst) VALUES "
+            "(%1, '%2', %3);";
+    str = strF.arg(src)
+              .arg(name)
+              .arg(dst);
+
+    if (!query.exec(str)){
+        QMessageBox::information(0, "SQL INSERT:", query.lastError().text());
+    }
+    else{
+        dataModel->m_edgeTypes->select();
+    }
+}
+
+void DataModel::insertQuantType(QString name){
+    qDebug () << "insertQuantType";
+    QSqlQuery query;
+    QString str;
+    QString strF ="INSERT INTO quantifiers (quant_name) VALUES('%1');";
+    str = strF.arg(name);
+    if (!query.exec(str)){
+        QMessageBox::information(0, "SQL INSERT:", query.lastError().text());
+    }
+    else{
+        dataModel->m_quantTypes->select();
+    }
+}
+
+bool DataModel::insertNode(QString id_node_type,QString node_name,QString brightness,QString status,QString author,QString rem)
+{
+    qDebug () << "insertNode";
+    QSqlQuery query;
+    QString str;
+    QString strF ="INSERT INTO nodes (id_node_type, node_name, brightness, status, author, rem)"
+                              "VALUES(%1, '%2', %3, %4, '%5', '%6');";
+    str = strF.arg(id_node_type)
+            .arg(node_name)
+            .arg(brightness)
+            .arg(status)
+            .arg(author)
+            .arg(rem);
+
+    if (!query.exec(str))
+    {
+        qDebug() << str;
+        qDebug() << "Unable to make insert operation";
+        //QMessageBox::information(0, "SQL INSERT:", query.lastError().text());
+        dataModel->logMessage(query.lastError().text());
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+bool DataModel::insertEdge(QString id_node_src,QString id_edge_type,QString id_node_dst,QString quant_id,QString capacity,QString status,QString isNew)
+{
+    qDebug () << "insertEdge";
+    QSqlQuery query;
+    QString str;
+    QString strF ="INSERT INTO edges "
+            "(id_node_src,id_edge_type,id_node_dst,quant_id,capacity,status,isNew) VALUES "
+            "(%1, %2, %3, '%4', %5, %6, %7);";
+    str = strF.arg(id_node_src)
+              .arg(id_edge_type)
+              .arg(id_node_dst)
+              .arg(quant_id)
+              .arg(capacity)
+              .arg(status)
+              .arg(isNew);
+    if (!query.exec(str))
+    {
+        //QMessageBox::information(0, "SQL INSERT:", query.lastError().text());
+        dataModel->logMessage(query.lastError().text());
+        return false;
+    }
+    else
+    {
+        dataModel->m_edges->select();
+        return true;
+    }
+}
 

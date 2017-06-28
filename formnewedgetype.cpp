@@ -32,27 +32,11 @@ void FormNewEdgeType::on_push_add_clicked()
     }
     else
     {
-        QSqlQuery query;
-        QString str;
-
-        QString strF ="INSERT INTO edge_types "
-                "(id_node_type_src,edge_name,id_node_type_dst) VALUES "
-                "(%1, '%2', %3);";
-        str = strF.arg(ui->cb_src_private->currentText())
-                  .arg(ui->line_edge_name->text())
-                  .arg(ui->cb_dst_private->currentText());
-
-        if (!query.exec(str))
-        {
-            QMessageBox::information(0, "SQL INSERT:", query.lastError().text());
-        }
-        else
-        {
-//            QMessageBox::information(0, "SQL INSERT:", "Operation successfully!");
-            dataModel->m_edgeTypes->select();
-            ui->line_edge_name->clear();
-            hide();
-        }
+        dataModel->insertEdgeType(ui->cb_src_private->currentText(),
+                                  ui->line_edge_name->text(),
+                                  ui->cb_dst_private->currentText());
+        ui->line_edge_name->clear();
+        hide();
     }
 
 }

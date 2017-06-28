@@ -172,7 +172,12 @@ public:
     void LoadDafGraph();
 
     //---------------------------------------------------------
-
+    // добавление типа узла
+    void insertNodeType(QString name);
+    // добавление типа ребра
+    void insertEdgeType(QString src, QString name, QString dst);
+    // добавление типа квантора
+    void insertQuantType(QString name);
 
 
     //

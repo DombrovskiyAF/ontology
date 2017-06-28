@@ -31,21 +31,9 @@ void formNewQuant::on_buttonBox_accepted()
     }
     else
     {
-        QSqlQuery query;
-        QString str;
-        QString strF ="INSERT INTO quantifiers (quant_name) VALUES('%1');";
-        str = strF.arg(ui->name->text());
-
-        if (!query.exec(str))
-        {
-            QMessageBox::information(0, "SQL INSERT:", query.lastError().text());
-        }
-        else
-        {
-//            QMessageBox::information(0, "SQL INSERT:", "Operation successfully!");
-            dataModel->m_quantTypes->select();
-            ui->name->clear();
-        }
+        dataModel->insertQuantType(ui->name->text());
+        ui->name->clear();
+        hide();
     }
 }
 

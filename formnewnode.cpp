@@ -36,7 +36,12 @@ void FormNewNode::on_setup_view()
 void FormNewNode::on_push_add_clicked()
 {
 
-    if (dataModel->insertNode(ui->cbNodeType_private->currentText(),ui->lineEditName->text(),QString::number(ui->spinBoxBrig->value()),QString::number(ui->spinBoxStatus->value()),ui->lineEditAuthor->text(),ui->textEditRem->toPlainText())){
+    if (dataModel->insertNode(ui->cbNodeType_private->currentText(),
+                              ui->lineEditName->text(),
+                              QString::number(ui->spinBoxBrig->value()),
+                              QString::number(ui->spinBoxStatus->value()),
+                              ui->lineEditAuthor->text(),
+                              ui->textEditRem->toPlainText())){
         ui->lineEditName->clear();
         ui->textEditRem->clear();
         dataModel->m_nodes->select();
