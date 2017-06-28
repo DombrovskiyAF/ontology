@@ -39,7 +39,7 @@ FormEdges::FormEdges(QWidget *parent) :
 
 //    QObject::connect(ui->treeWidget_src,SIGNAL(clicked(QModelIndex)),SLOT(src_tree_clicked(QModelIndex)));
 
-// � ¤Сѓ� Ѕ� єС� � ёСЏ � ґ� »СЏ � є� Ѕ� ѕ� ї� ѕ� є
+// Р В¤РЎС“Р Р…Р С”РЎвЂ Р С‘РЎРЏ Р Т‘Р В»РЎРЏ Р С”Р Р…Р С•Р С—Р С•Р С”
     connect(ui->cb_dst,SIGNAL(currentIndexChanged(int)),SLOT(data_canged()));
     connect(ui->cb_src,SIGNAL(currentIndexChanged(int)),SLOT(data_canged()));
     connect(ui->cb_type,SIGNAL(currentIndexChanged(int)),SLOT(data_canged()));
@@ -148,7 +148,7 @@ void FormEdges::setEdgesModel(QAbstractItemModel *model)
     formnewedge->setmappers();
 }
 
-// � џСЂ� ё � ІС‹� ±� ѕСЂ� µ � ·� °� ї� ёСЃ� ё
+// Выбор ребра
 void FormEdges::on_select(QModelIndex current)
 {
     ui->spin_id->setValue(ui->tvEdges->model()->data(  ui->tvEdges->model()->index(current.row(),0)  , 2).toInt());
@@ -209,51 +209,29 @@ void FormEdges::on_select(QModelIndex current)
     ui->push_save->setEnabled(0);
 }
 
-// � џСЂ� ё � ґ� ѕ� ±� °� І� »� µ� Ѕ� ё� ё
+// Р СџРЎР‚Р С‘ Р Т‘Р С•Р В±Р В°Р Р†Р В»Р ВµР Р…Р С‘Р С‘
 void FormEdges::on_add(){
     formnewedge->show();
 }
 
-// � џСЂ� ё СЃ� ѕС…СЂ� °� Ѕ� µ� Ѕ� ё� ё
+// Обновление ребра
 void FormEdges::on_save()
 {
-    if (!dataModel->db.isOpen())
-    {
+    if (!dataModel->db.isOpen()){
         QMessageBox::information(0, "SQL UPDATE:", "Database isn't open!");
+    }else{
+        if (dataModel->updateEdge(ui->cb_src_private->currentText(),
+                                  ui->cb_type_private->currentText(),
+                                  ui->cb_dst_private->currentText(),
+                                  ui->cb_quant_private->currentText(),
+                                  QString::number(ui->spin_capacity->value()),
+                                  QString::number(ui->spin_status->value()),
+                                  QString::number(ui->spin_isNew->value()),
+                                  ui->tvEdges->model()->data(ui->tvEdges->model()->index(ui->tvEdges->currentIndex().row(),0), 2).toString()))
+        {
+            dataModel->m_edges->select();
+        }
     }
-    else
-    {
-            QSqlQuery query;
-            QString str;
-            QString strF ="UPDATE edges SET "
-                    "edges.id_node_src=%1, "
-                    "edges.id_edge_type=%2, "
-                    "edges.id_node_dst=%3, "
-                    "edges.quant_id='%4', "
-                    "edges.capacity=%5, "
-                    "edges.status=%6, "
-                    "edges.isNew=%7 "
-                    "WHERE edges.id=%8;";
-            str = strF.arg(ui->cb_src_private->currentText())
-                        .arg(ui->cb_type_private->currentText())
-                        .arg(ui->cb_dst_private->currentText())
-                        .arg(ui->cb_quant_private->currentText())
-                        .arg(ui->spin_capacity->value())
-                        .arg(ui->spin_status->value())
-                        .arg(ui->spin_isNew->value())
-                      .arg(ui->tvEdges->model()->data(ui->tvEdges->model()->index(ui->tvEdges->currentIndex().row(),0), 2).toString());
-            if (!query.exec(str))
-            {
-                qDebug () << str;
-              QMessageBox::information(0, "SQL UPDATE:", query.lastError().text());
-            }
-            else
-            {
-//              QMessageBox::information(0, "SQL UPDATE:", "Operation successfully!");
-              dataModel->m_edges->select();
-            }
-    }
-
     ui->push_save->setEnabled(0);
     ui->push_revert->setEnabled(0);
     ui->push_del->setEnabled(0);
@@ -261,7 +239,7 @@ void FormEdges::on_save()
 }
 
 
-// � џСЂ� ё � ѕС‚� ј� µ� Ѕ� µ
+// Р СџРЎР‚Р С‘ Р С•РЎвЂљР СР ВµР Р…Р Вµ
 void FormEdges::on_revert()
 {
     QModelIndex current = ui->tvEdges->currentIndex();
@@ -278,7 +256,7 @@ void FormEdges::on_revert()
 }
 
 
-// � џСЂ� ё Сѓ� ґ� °� »� µ� Ѕ� ё� ё
+// Р СџРЎР‚Р С‘ РЎС“Р Т‘Р В°Р В»Р ВµР Р…Р С‘Р С‘
 void FormEdges::on_del()
 {
     //dataModel->m_edges->removeRow(ui->tvEdges->currentIndex().row());
@@ -345,7 +323,7 @@ void FormEdges::open_dst()
 
 
 
-// � џСЂ� ё � ё� ·� ј� µ� Ѕ� µ� Ѕ� ё� ё � ґ� °� Ѕ� ЅС‹С…
+// Р СџРЎР‚Р С‘ Р С‘Р В·Р СР ВµР Р…Р ВµР Р…Р С‘Р С‘ Р Т‘Р В°Р Р…Р Р…РЎвЂ№РЎвЂ¦
 void FormEdges::data_canged()
 {
     if ((ui->cb_src->currentText()) != (ui->tvEdges->model()->data(ui->tvEdges->model()->index(ui->tvEdges->currentIndex().row(),1),2)).toString() ||
@@ -417,7 +395,7 @@ void FormEdges::on_right_delete()
     //////////////////////////////////
     //////////////////////////////////
     //////////////////////////////////
-    //// � џ�  � ћ� ‘� ›� •� њ� ђ � Ў � ­� ў� ћ� ™ � Ў� ў�  � ћ� §� љ� ћ� ™  ///
+    //// Р СџР  Р С›Р вЂР вЂєР вЂўР СљР С’ Р РЋ Р В­Р СћР С›Р в„ў Р РЋР СћР  Р С›Р В§Р С™Р С›Р в„ў  ///
     //////////////////////////////////
     //////////////////////////////////
     //////////////////////////////////

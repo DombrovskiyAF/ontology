@@ -134,9 +134,9 @@ public:
     /// при неуспехе возвращает false
     bool insertEdge(QString id_node_src,QString id_edge_type,QString id_node_dst,QString quant_id,QString capacity,QString status,QString isNew, int &idEdge);
 
-    bool updateNode();
+    bool updateNode(QString p1,QString p2, QString p3,QString p4, QString p5,QString p6, QString p7);
     bool deleteNode();
-    bool updateEdge();
+    bool updateEdge(QString p1, QString p2, QString p3, QString p4, QString p5, QString p6, QString p7, QString p8);
     bool deleteEdge();
 
     int getEdgeId(QString id_node_src, QString id_edge_type, QString id_node_dst);
@@ -181,13 +181,13 @@ public:
 
     // Тип ребра
     void insertEdgeType(QString src, QString name, QString dst);
-    void updateEdgeType(QString src, QString name, QString dst);
+    bool updateEdgeType(QString src, QString name, QString dst, QString id);
     void deleteEdgeType(QString src, QString name, QString dst);
 
 
     // Тип квантора
     void insertQuantType(QString name);
-    void updateQuantType(QString name);
+    bool updateQuantType(QString name, QString value);
     void deleteQuantType(QString name);
 
     //

@@ -87,7 +87,7 @@ void FormNodes::on_pbTest_clicked()
 {
     //QString name = ui->lineEditName->text();
     //QString typeName = ui->lineEditTypeName->text();
-    //QString aut = QString::fromLocal8Bit("аффтор");
+    //QString aut = QString::fromLocal8Bit("Р°С„С„С‚РѕСЂ");
 
     //dataModel->addNodeToModel(name, typeName, 1, 1, aut, "remark");
 
@@ -130,7 +130,7 @@ void FormNodes::on_select(QModelIndex current)
 
     ui->pbDelete->setEnabled(1);
 
-//////////////////////////////////////////////////////////ВХОДЯЩИЕ � ЁБ� А
+//////////////////////////////////////////////////////////Р’РҐРћР”РЇР©РР• Р РЃР‘Р Рђ
     QSqlQuery query;
     QString str;
 //    QString strF ="SELECT edges.id, edges.id_node_src, edges.id_edge_type, edges.id_node_dst "
@@ -167,7 +167,7 @@ void FormNodes::on_select(QModelIndex current)
   }
 
 
-  /////////////////////////////////////////////////ИСХОДЯЩИЕ � ЁБ� А
+  /////////////////////////////////////////////////РРЎРҐРћР”РЇР©РР• Р РЃР‘Р Рђ
       QSqlQuery query2;
       QString str2;
       QString strF2 = "SELECT edges.id, edge_types.edge_name , node_types.node_type_name , nodes.node_name, edges.id_node_dst "
@@ -216,41 +216,18 @@ void FormNodes::on_select(QModelIndex current)
 
 void FormNodes::on_save()
 {
-            QSqlQuery query;
-            QString str;
-            QString strF ="UPDATE nodes SET "
-                    "nodes.id_node_type = %1, "
-                    "nodes.node_name = '%2', "
-                    "nodes.brightness = %3, "
-                    "nodes.status = %4, "
-                    "nodes.author = '%5', "
-                    "nodes.rem = '%6' "
-                    "WHERE nodes.id=%7;";
-
-            str = strF.arg(ui->cbNodeType_private->currentText())
-                         .arg(ui->lineEditName->text())
-                         .arg(QString::number(ui->spinBoxBrig->value()))
-                         .arg(QString::number(ui->spinBoxStatus->value()))
-                         .arg(ui->lineEditAuthor->text())
-                         .arg(ui->textEditRem->toPlainText())
-                         .arg(QString::number(ui->spinBoxId->value()));
-
-            if (!query.exec(str))
-            {
-              qDebug() << str;
-              qDebug() << query.lastError();
-              QMessageBox::information(0, "SQL UPDATE:", query.lastError().text());
-            }
-            else
-            {
-              qDebug() << "SUCCESS!!!";
-              qDebug() << str;
-              ui->tvNodes->setModel(dataModel->m_nodes);
-              dataModel->m_nodes->select();
-//              QMessageBox::information(0, "SQL UPDATE:", "Operation successfully!");
-            }
-
-            ui->tvNodes->update(ui->tvNodes->currentIndex());
+    if (dataModel->updateNode(ui->cbNodeType_private->currentText(),
+                              ui->lineEditName->text(),
+                              QString::number(ui->spinBoxBrig->value()),
+                              QString::number(ui->spinBoxStatus->value()),
+                              ui->lineEditAuthor->text(),
+                              ui->textEditRem->toPlainText(),
+                              QString::number(ui->spinBoxId->value())))
+    {
+        ui->tvNodes->setModel(dataModel->m_nodes);
+        dataModel->m_nodes->select();
+    }
+    ui->tvNodes->update(ui->tvNodes->currentIndex());
 }
 
 
@@ -487,23 +464,23 @@ void FormNodes::on_push_find()
     {
       if (ui->lineFindText->text()!="")
       {
-        QVariant val = ui->lineFindText->text(); // строка для поиска
+        QVariant val = ui->lineFindText->text(); // СЃС‚СЂРѕРєР° РґР»СЏ РїРѕРёСЃРєР°
         QModelIndexList list = ui->tvNodes->model()->match(ui->tvNodes->model()->index(0, 2), 0, val,1, Qt::MatchFixedString);
         if (!list.isEmpty())
         {
             ui->tvNodes->selectionModel()->setCurrentIndex(list.first(),QItemSelectionModel::Rows|QItemSelectionModel::Select|QItemSelectionModel::ClearAndSelect);
             ui->tvNodes->scrollTo(ui->tvNodes->model()->index(list.first().row(), 2));
             emit on_select(ui->tvNodes->model()->index(list.first().row(), 2));
-            pal_lineEdit->setColor(QPalette::Base, Qt::green); //цвет фона
+            pal_lineEdit->setColor(QPalette::Base, Qt::green); //С†РІРµС‚ С„РѕРЅР°
             ui->lineFindText->setPalette(*pal_lineEdit);
             return;
         }
-        pal_lineEdit->setColor(QPalette::Base, Qt::red); //цвет фона
+        pal_lineEdit->setColor(QPalette::Base, Qt::red); //С†РІРµС‚ С„РѕРЅР°
         ui->lineFindText->setPalette(*pal_lineEdit);
       }
       else
       {
-            pal_lineEdit->setColor(QPalette::Base, Qt::white); //цвет фона
+            pal_lineEdit->setColor(QPalette::Base, Qt::white); //С†РІРµС‚ С„РѕРЅР°
             ui->lineFindText->setPalette(*pal_lineEdit);
       }
     }
@@ -511,23 +488,23 @@ void FormNodes::on_push_find()
     {
       if (ui->lineFindText->text()!="")
       {
-        QVariant val = ui->lineFindText->text(); // строка для поиска
+        QVariant val = ui->lineFindText->text(); // СЃС‚СЂРѕРєР° РґР»СЏ РїРѕРёСЃРєР°
         QModelIndexList list = ui->tvNodes->model()->match(ui->tvNodes->model()->index(0, 2), 0, val,1, Qt::MatchContains);
         if (!list.isEmpty())
         {
             ui->tvNodes->selectionModel()->setCurrentIndex(list.first(),QItemSelectionModel::Rows|QItemSelectionModel::Select|QItemSelectionModel::ClearAndSelect);
             ui->tvNodes->scrollTo(ui->tvNodes->model()->index(list.first().row(), 2));
             emit on_select(ui->tvNodes->model()->index(list.first().row(), 2));
-            pal_lineEdit->setColor(QPalette::Base, Qt::green); //цвет фона
+            pal_lineEdit->setColor(QPalette::Base, Qt::green); //С†РІРµС‚ С„РѕРЅР°
             ui->lineFindText->setPalette(*pal_lineEdit);
             return;
         }
-        pal_lineEdit->setColor(QPalette::Base, Qt::red); //цвет фона
+        pal_lineEdit->setColor(QPalette::Base, Qt::red); //С†РІРµС‚ С„РѕРЅР°
         ui->lineFindText->setPalette(*pal_lineEdit);
       }
       else
       {
-            pal_lineEdit->setColor(QPalette::Base, Qt::white); //цвет фона
+            pal_lineEdit->setColor(QPalette::Base, Qt::white); //С†РІРµС‚ С„РѕРЅР°
             ui->lineFindText->setPalette(*pal_lineEdit);
       }
     }

@@ -2150,7 +2150,6 @@ bool DataModel::deleteNodeType(QString name)
 ///////////////////////////////////////////////
 ///     Тип ребра
 ///////////////////////////////////////////////
-
 void DataModel::insertEdgeType(QString src, QString name, QString dst){
     qDebug () << "insertEdgeType";
     QSqlQuery query;
@@ -2171,14 +2170,30 @@ void DataModel::insertEdgeType(QString src, QString name, QString dst){
     }
 }
 
-void DataModel::updateEdgeType(QString src, QString name, QString dst)
-{
-
+bool DataModel::updateEdgeType(QString src, QString name, QString dst, QString id){
+    qDebug () << "updateEdgeType";
+    QSqlQuery query;
+    QString str;
+    QString strF ="UPDATE edge_types SET "
+            "edge_types.id_node_type_src=%0, "
+            "edge_types.edge_name='%1', "
+            "edge_types.id_node_type_dst=%2 "
+            "WHERE (((edge_types.id)=%4));";
+    str = strF.arg(src)
+              .arg(name)
+              .arg(dst)
+              .arg(id);
+    if(query.exec(str)){
+        return 1;
+    }else{
+        QMessageBox::information(0, "SQL UPDATE:", query.lastError().text());
+        return 0;
+    }
 }
 
 void DataModel::deleteEdgeType(QString src, QString name, QString dst)
 {
-
+    qDebug () << "deleteEdgeType";
 }
 
 ///////////////////////////////////////////////
@@ -2199,9 +2214,18 @@ void DataModel::insertQuantType(QString name){
     }
 }
 
-void DataModel::updateQuantType(QString name)
-{
-
+bool DataModel::updateQuantType(QString name, QString value){
+    QSqlQuery query;
+    QString str;
+    QString strF ="UPDATE quantifiers SET quantifiers.quant_name = '%1' WHERE (((quantifiers.id)=%2));";
+    str = strF.arg(name)
+              .arg(value);
+    if(query.exec(str)){
+        return 1;
+    }else{
+        QMessageBox::information(0, "SQL UPDATE:", query.lastError().text());
+        return 0;
+    }
 }
 
 void DataModel::deleteQuantType(QString name)
@@ -2241,9 +2265,34 @@ bool DataModel::insertNode(QString id_node_type,QString node_name,QString bright
     }
 }
 
-bool DataModel::updateNode()
-{
+bool DataModel::updateNode(QString p1,QString p2,
+                           QString p3,QString p4,
+                           QString p5,QString p6,
+                           QString p7){
+    QSqlQuery query;
+    QString str;
+    QString strF ="UPDATE nodes SET "
+            "nodes.id_node_type = %1, "
+            "nodes.node_name = '%2', "
+            "nodes.brightness = %3, "
+            "nodes.status = %4, "
+            "nodes.author = '%5', "
+            "nodes.rem = '%6' "
+            "WHERE nodes.id=%7;";
 
+    str = strF.arg(p1)
+                 .arg(p2)
+                 .arg(p3)
+                 .arg(p4)
+                 .arg(p5)
+                 .arg(p6)
+                 .arg(p7);
+    if(query.exec(str)){
+        return 1;
+    }else{
+        QMessageBox::information(0, "SQL UPDATE:", query.lastError().text());
+        return 0;
+    }
 }
 
 bool DataModel::deleteNode()
@@ -2254,7 +2303,6 @@ bool DataModel::deleteNode()
 ///////////////////////////////////////////////
 ///     Ребро
 ///////////////////////////////////////////////
-
 bool DataModel::insertEdge(QString id_node_src,QString id_edge_type,QString id_node_dst,QString quant_id,QString capacity,QString status,QString isNew)
 {
     qDebug () << "insertEdge";
@@ -2282,10 +2330,36 @@ bool DataModel::insertEdge(QString id_node_src,QString id_edge_type,QString id_n
         return true;
     }
 }
-
-bool DataModel::updateEdge()
+bool DataModel::updateEdge(QString p1,QString p2,
+                           QString p3,QString p4,
+                           QString p5,QString p6,
+                           QString p7,QString p8)
 {
-
+    QSqlQuery query;
+    QString str;
+    QString strF ="UPDATE edges SET "
+            "edges.id_node_src=%1, "
+            "edges.id_edge_type=%2, "
+            "edges.id_node_dst=%3, "
+            "edges.quant_id='%4', "
+            "edges.capacity=%5, "
+            "edges.status=%6, "
+            "edges.isNew=%7 "
+            "WHERE edges.id=%8;";
+    str = strF.arg(p1)
+            .arg(p2)
+            .arg(p3)
+            .arg(p4)
+            .arg(p5)
+            .arg(p6)
+            .arg(p7)
+            .arg(p8);
+    if(query.exec(str)){
+        return 1;
+    }else{
+        QMessageBox::information(0, "SQL UPDATE:", query.lastError().text());
+        return 0;
+    }
 }
 
 bool DataModel::deleteEdge()

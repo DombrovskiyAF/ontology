@@ -108,35 +108,28 @@ void FormTypes::on_db_open()
     ui->push_e_add->setEnabled(1);
 }
 
-/////////////////////////////////////////////////////
-/////////////////////////////////////////////////////
-/////////////////////////////////////////////////////
-
-// Выбор типа узла / Ds,jh nbgf epkf
-void FormTypes::on_n_select(QModelIndex current)
-{
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////       Тип узла
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Выбор, клик, селект
+void FormTypes::on_n_select(QModelIndex current){
     ui->spin_n_id->setValue(ui->tvNodeTypes->model()->data(ui->tvNodeTypes->model()->index(current.row(),0), 2).toInt());
     ui->line_node_name->setText(ui->tvNodeTypes->model()->data(ui->tvNodeTypes->model()->index(current.row(),1), 2).toString());
     ui->push_n_del->setEnabled(1);
     ui->push_n_save->setEnabled(0);
     ui->push_n_revert->setEnabled(0);
 }
-
-// Добавление типа узла / Lj,fdktybt nbgf epkf
-void FormTypes::on_push_n_add_clicked()
-{
+// Добавление нового
+void FormTypes::on_push_n_add_clicked(){
     formnewnodetype->show();
 }
-
-//Отмена изменений типа узла
-void FormTypes::on_push_n_revert()
-{
+//Отмена изменений
+void FormTypes::on_push_n_revert(){
     ui->line_node_name->setText(ui->tvNodeTypes->model()->data(ui->tvNodeTypes->model()->index(ui->tvNodeTypes->currentIndex().row(),1), 2).toString());
     ui->push_n_save->setEnabled(0);
     ui->push_n_revert->setEnabled(0);
 }
-
-// Сохранение типа узла / Cj[hfytybt nbgf epkf
+// Сохранение, обновление, перезапись
 void FormTypes::on_push_n_save(){
     if (!dataModel->db.isOpen()){
         QMessageBox::information(0, "SQL UPDATE:", "Database isn't open!");
@@ -150,12 +143,10 @@ void FormTypes::on_push_n_save(){
     ui->push_n_save->setEnabled(0);
     ui->push_n_revert->setEnabled(0);
 }
-
 // При удалении типа узла - удаление связных типов рёбер
 //& удаление всех узлов удаленного типа узла
 //& удаление всех рёбер связного типа
-void FormTypes::del_edgetypes_for_del_nodetype()
-{
+void FormTypes::del_edgetypes_for_del_nodetype(){
     int i = 0;
     QList <QString> list_of_del_edgetype;
     while (ui->tvEdgeTypes->model()->index(i,0).data().toBool())
@@ -248,89 +239,9 @@ void FormTypes::on_n_changed()
         ui->push_n_revert->setEnabled(0);
     }
 }
-
-//////////////////////////// КВАНТОРЫ
-
-void FormTypes::on_q_select(QModelIndex current)
-{
-    ui->spin_q_id->setValue(ui->tvQuantTypes->model()->data(ui->tvQuantTypes->model()->index(current.row(),0), 2).toInt());
-    ui->line_quant_name->setText(ui->tvQuantTypes->model()->data(ui->tvQuantTypes->model()->index(current.row(),1), 2).toString());
-    ui->push_q_del->setEnabled(1);
-    ui->push_q_save->setEnabled(0);
-    ui->push_q_revert->setEnabled(0);
-}
-
-void FormTypes::on_push_q_add()
-{
-    formnewquant->show();
-}
-
-void FormTypes::on_push_q_revert()
-{
-    ui->line_quant_name->setText(ui->tvQuantTypes->model()->data(ui->tvQuantTypes->model()->index(ui->tvQuantTypes->currentIndex().row(),1), 2).toString());
-    ui->push_q_save->setEnabled(0);
-    ui->push_q_revert->setEnabled(0);
-}
-
-void FormTypes::on_push_q_save()
-{
-    if (!dataModel->db.isOpen()){
-        QMessageBox::information(0, "SQL UPDATE:", "Database isn't open!");
-    }
-    else{
-        QSqlQuery query;
-        QString str;
-        QString strF ="UPDATE quantifiers SET quantifiers.quant_name = '%1' WHERE (((quantifiers.id)=%2));";
-
-        str = strF.arg(ui->line_quant_name->text())
-                  .arg(ui->spin_q_id->value());
-
-        if (!query.exec(str)){
-            QMessageBox::information(0, "SQL UPDATE:", query.lastError().text());
-        }
-        else{
-//          QMessageBox::information(0, "SQL UPDATE:", "Operation successfully!");
-            dataModel->m_quantTypes->select();
-        }
-    }
-    ui->push_q_del->setEnabled(0);
-    ui->push_q_save->setEnabled(0);
-    ui->push_q_revert->setEnabled(0);
-}
-
-void FormTypes::on_push_q_del()
-{
-    dataModel->m_quantTypes->removeRow(ui->tvQuantTypes->currentIndex().row());
-    dataModel->m_quantTypes->submitAll();
-    dataModel->m_quantTypes->select();
-
-    ui->push_q_del->setEnabled(0);
-    ui->push_q_save->setEnabled(0);
-    ui->push_q_revert->setEnabled(0);
-}
-
-void FormTypes::on_q_changed()
-{
-    if ((ui->line_quant_name->text()) != (ui->tvQuantTypes->model()->data(ui->tvQuantTypes->model()->index(ui->tvQuantTypes->currentIndex().row(),1),2)).toString())
-    {
-        ui->push_q_save->setEnabled(1);
-        ui->push_q_revert->setEnabled(1);
-    }
-    else
-    {
-        ui->push_q_save->setEnabled(0);
-        ui->push_q_revert->setEnabled(0);
-    }
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////       Тип ребра
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Выбор типа ребра
 void FormTypes::on_e_select(QModelIndex current)
 {
@@ -368,41 +279,23 @@ void FormTypes::on_push_e_revert()
 }
 
 // Сохранение типа ребра
-void FormTypes::on_push_e_save()
-{
-            QSqlQuery query;
-            QString str;
-            QString strF ="UPDATE edge_types SET "
-                    "edge_types.id_node_type_src=%0, "
-                    "edge_types.edge_name='%1', "
-                    "edge_types.id_node_type_dst=%2 "
-                    "WHERE (((edge_types.id)=%4));";
-            str = strF.arg(ui->cb_src_private->currentText())
-                      .arg(ui->line_edge_name->text())
-                      .arg(ui->cb_dst_private->currentText())
-                      .arg(ui->tvEdgeTypes->model()->data(ui->tvEdgeTypes->model()->index(ui->tvEdgeTypes->currentIndex().row(),0), 2).toString());
-            if (!query.exec(str))
-            {
-                QMessageBox::information(0, "SQL UPDATE:", query.lastError().text());
-            }
-            else
-            {
-//                QMessageBox::information(0, "SQL UPDATE:", "Operation successfully!");
-                dataModel->m_edgeTypes->select();
-            }
-
-            ui->push_e_del->setEnabled(0);
-            ui->push_e_save->setEnabled(0);
-            ui->push_e_revert->setEnabled(0);
-
+void FormTypes::on_push_e_save(){
+    if (dataModel->updateEdgeType(ui->cb_src_private->currentText(),
+                                  ui->line_edge_name->text(),
+                                  ui->cb_dst_private->currentText(),
+                                  ui->tvEdgeTypes->model()->data(ui->tvEdgeTypes->model()->index(ui->tvEdgeTypes->currentIndex().row(),0), 2).toString()))
+    {
+        dataModel->m_edgeTypes->select();
+    }
+    ui->push_e_del->setEnabled(0);
+    ui->push_e_save->setEnabled(0);
+    ui->push_e_revert->setEnabled(0);
 }
 
 // Удаление типа ребра
-void FormTypes::on_push_e_del()
-{
+void FormTypes::on_push_e_del(){
     dataModel->m_edgeTypes->removeRow(ui->tvEdgeTypes->currentIndex().row());
     dataModel->m_edgeTypes->submitAll();
-
     ui->push_e_del->setEnabled(0);
     ui->push_e_save->setEnabled(0);
     ui->push_e_revert->setEnabled(0);
@@ -419,17 +312,66 @@ void FormTypes::on_e_changed()
     {
         ui->push_e_save->setEnabled(1);
         ui->push_e_revert->setEnabled(1);
-    }
-    else
-    {
+    }else{
         ui->push_e_save->setEnabled(0);
         ui->push_e_revert->setEnabled(0);
     }
 }
 
-/////////////////////////////////////////////////////
-/////////////////////////////////////////////////////
-/////////////////////////////////////////////////////
-/////////////////////////////////////////////////////
-/////////////////////////////////////////////////////
-/////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////       Кванторы
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void FormTypes::on_q_select(QModelIndex current)
+{
+    ui->spin_q_id->setValue(ui->tvQuantTypes->model()->data(ui->tvQuantTypes->model()->index(current.row(),0), 2).toInt());
+    ui->line_quant_name->setText(ui->tvQuantTypes->model()->data(ui->tvQuantTypes->model()->index(current.row(),1), 2).toString());
+    ui->push_q_del->setEnabled(1);
+    ui->push_q_save->setEnabled(0);
+    ui->push_q_revert->setEnabled(0);
+}
+
+void FormTypes::on_push_q_add()
+{
+    formnewquant->show();
+}
+
+void FormTypes::on_push_q_revert()
+{
+    ui->line_quant_name->setText(ui->tvQuantTypes->model()->data(ui->tvQuantTypes->model()->index(ui->tvQuantTypes->currentIndex().row(),1), 2).toString());
+    ui->push_q_save->setEnabled(0);
+    ui->push_q_revert->setEnabled(0);
+}
+
+void FormTypes::on_push_q_save()
+{
+    if (!dataModel->db.isOpen()){
+        QMessageBox::information(0, "SQL UPDATE:", "Database isn't open!");
+    }else{
+        if (dataModel->updateQuantType(ui->line_quant_name->text(), QString::number(ui->spin_q_id->value()))){
+            dataModel->m_quantTypes->select();
+        }
+    }
+    ui->push_q_del->setEnabled(0);
+    ui->push_q_save->setEnabled(0);
+    ui->push_q_revert->setEnabled(0);
+}
+
+void FormTypes::on_push_q_del(){
+    dataModel->m_quantTypes->removeRow(ui->tvQuantTypes->currentIndex().row());
+    dataModel->m_quantTypes->submitAll();
+    dataModel->m_quantTypes->select();
+    ui->push_q_del->setEnabled(0);
+    ui->push_q_save->setEnabled(0);
+    ui->push_q_revert->setEnabled(0);
+}
+
+void FormTypes::on_q_changed(){
+    if ((ui->line_quant_name->text()) != (ui->tvQuantTypes->model()->data(ui->tvQuantTypes->model()->index(ui->tvQuantTypes->currentIndex().row(),1),2)).toString())
+    {
+        ui->push_q_save->setEnabled(1);
+        ui->push_q_revert->setEnabled(1);
+    }else{
+        ui->push_q_save->setEnabled(0);
+        ui->push_q_revert->setEnabled(0);
+    }
+}
