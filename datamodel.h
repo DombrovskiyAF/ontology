@@ -135,7 +135,9 @@ public:
     bool insertEdge(QString id_node_src,QString id_edge_type,QString id_node_dst,QString quant_id,QString capacity,QString status,QString isNew, int &idEdge);
 
     bool updateNode();
+    bool deleteNode();
     bool updateEdge();
+    bool deleteEdge();
 
     int getEdgeId(QString id_node_src, QString id_edge_type, QString id_node_dst);
     int getNodeId(QString node_name);
@@ -172,13 +174,21 @@ public:
     void LoadDafGraph();
 
     //---------------------------------------------------------
-    // добавление типа узла
+    // Тип узла
     void insertNodeType(QString name);
-    // добавление типа ребра
-    void insertEdgeType(QString src, QString name, QString dst);
-    // добавление типа квантора
-    void insertQuantType(QString name);
+    bool updateNodeType(QString name, QString id);
+    bool deleteNodeType(QString name);
 
+    // Тип ребра
+    void insertEdgeType(QString src, QString name, QString dst);
+    void updateEdgeType(QString src, QString name, QString dst);
+    void deleteEdgeType(QString src, QString name, QString dst);
+
+
+    // Тип квантора
+    void insertQuantType(QString name);
+    void updateQuantType(QString name);
+    void deleteQuantType(QString name);
 
     //
     void createDafGraphTypes();

@@ -137,28 +137,11 @@ void FormTypes::on_push_n_revert()
 }
 
 // Сохранение типа узла / Cj[hfytybt nbgf epkf
-void FormTypes::on_push_n_save()
-{
-    if (!dataModel->db.isOpen())
-    {
+void FormTypes::on_push_n_save(){
+    if (!dataModel->db.isOpen()){
         QMessageBox::information(0, "SQL UPDATE:", "Database isn't open!");
-    }
-    else
-    {
-        QSqlQuery query;
-        QString str;
-        QString strF ="UPDATE node_types SET node_types.node_type_name = '%1' WHERE (((node_types.id)=%2));";
-
-        str = strF.arg(ui->line_node_name->text())
-                  .arg(ui->spin_n_id->value());
-
-        if (!query.exec(str))
-        {
-            QMessageBox::information(0, "SQL UPDATE:", query.lastError().text());
-        }
-        else
-        {
-//            QMessageBox::information(0, "SQL UPDATE:", "Operation successfully!");
+    }else{
+        if (dataModel->updateNodeType(ui->line_node_name->text(),QString::number(ui->spin_n_id->value()))){
             dataModel->m_nodeTypes->select();
             dataModel->m_edgeTypes->select();
         }
@@ -166,8 +149,6 @@ void FormTypes::on_push_n_save()
     ui->push_n_del->setEnabled(0);
     ui->push_n_save->setEnabled(0);
     ui->push_n_revert->setEnabled(0);
-
-
 }
 
 // При удалении типа узла - удаление связных типов рёбер

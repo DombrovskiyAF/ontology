@@ -174,16 +174,6 @@ bool DataModel::insertEdge(QString id_node_src,QString id_edge_type,QString id_n
     }
 }
 
-bool DataModel::updateNode()
-{
-
-}
-
-bool DataModel::updateEdge()
-{
-
-}
-
 int DataModel::getEdgeId(QString id_node_src, QString id_edge_type, QString id_node_dst)
 {
     QSqlQuery q;
@@ -2122,22 +2112,44 @@ int DataModel::AddNode(QString nodeType, QString name, int brigh, int status, QS
 ///////////////////////////////////////////////
 ///     По заданию
 ///////////////////////////////////////////////
-
-
+///////////////////////////////////////////////
+///     Тип узла
+///////////////////////////////////////////////
 void DataModel::insertNodeType(QString name){
     qDebug () << "insertNodeType";
     QSqlQuery query;
     QString str;
     QString strF ="INSERT INTO node_types (node_type_name) VALUES('%1');";
     str = strF.arg(name);
-
     if (!query.exec(str)){
         QMessageBox::information(0, "SQL INSERT:", query.lastError().text());
-    }
-    else{
+    }else{
         dataModel->m_nodeTypes->select();
     }
 }
+bool DataModel::updateNodeType(QString name, QString id)
+{
+    qDebug () << "updateNodeType";
+    QSqlQuery query;
+    QString str;
+    QString strF ="UPDATE node_types SET node_types.node_type_name = '%1' WHERE (((node_types.id)=%2));";
+    str = strF.arg(name)
+              .arg(id);
+    if(query.exec(str)){
+        return 1;
+    }else{
+        QMessageBox::information(0, "SQL UPDATE:", query.lastError().text());
+        return 0;
+    }
+}
+bool DataModel::deleteNodeType(QString name)
+{
+
+}
+
+///////////////////////////////////////////////
+///     Тип ребра
+///////////////////////////////////////////////
 
 void DataModel::insertEdgeType(QString src, QString name, QString dst){
     qDebug () << "insertEdgeType";
@@ -2159,6 +2171,20 @@ void DataModel::insertEdgeType(QString src, QString name, QString dst){
     }
 }
 
+void DataModel::updateEdgeType(QString src, QString name, QString dst)
+{
+
+}
+
+void DataModel::deleteEdgeType(QString src, QString name, QString dst)
+{
+
+}
+
+///////////////////////////////////////////////
+///     Тип квантора
+///////////////////////////////////////////////
+
 void DataModel::insertQuantType(QString name){
     qDebug () << "insertQuantType";
     QSqlQuery query;
@@ -2172,6 +2198,20 @@ void DataModel::insertQuantType(QString name){
         dataModel->m_quantTypes->select();
     }
 }
+
+void DataModel::updateQuantType(QString name)
+{
+
+}
+
+void DataModel::deleteQuantType(QString name)
+{
+
+}
+
+///////////////////////////////////////////////
+///     Узел
+///////////////////////////////////////////////
 
 bool DataModel::insertNode(QString id_node_type,QString node_name,QString brightness,QString status,QString author,QString rem)
 {
@@ -2201,6 +2241,20 @@ bool DataModel::insertNode(QString id_node_type,QString node_name,QString bright
     }
 }
 
+bool DataModel::updateNode()
+{
+
+}
+
+bool DataModel::deleteNode()
+{
+
+}
+
+///////////////////////////////////////////////
+///     Ребро
+///////////////////////////////////////////////
+
 bool DataModel::insertEdge(QString id_node_src,QString id_edge_type,QString id_node_dst,QString quant_id,QString capacity,QString status,QString isNew)
 {
     qDebug () << "insertEdge";
@@ -2229,3 +2283,12 @@ bool DataModel::insertEdge(QString id_node_src,QString id_edge_type,QString id_n
     }
 }
 
+bool DataModel::updateEdge()
+{
+
+}
+
+bool DataModel::deleteEdge()
+{
+
+}
