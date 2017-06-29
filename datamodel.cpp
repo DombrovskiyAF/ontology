@@ -2215,6 +2215,7 @@ void DataModel::insertQuantType(QString name){
 }
 
 bool DataModel::updateQuantType(QString name, QString value){
+    qDebug () << "updateQuantType";
     QSqlQuery query;
     QString str;
     QString strF ="UPDATE quantifiers SET quantifiers.quant_name = '%1' WHERE (((quantifiers.id)=%2));";
@@ -2268,7 +2269,9 @@ bool DataModel::insertNode(QString id_node_type,QString node_name,QString bright
 bool DataModel::updateNode(QString p1,QString p2,
                            QString p3,QString p4,
                            QString p5,QString p6,
-                           QString p7){
+                           QString p7)
+{
+    qDebug () << "updateNode";
     QSqlQuery query;
     QString str;
     QString strF ="UPDATE nodes SET "
@@ -2335,6 +2338,7 @@ bool DataModel::updateEdge(QString p1,QString p2,
                            QString p5,QString p6,
                            QString p7,QString p8)
 {
+    qDebug () << "updateEdge";
     QSqlQuery query;
     QString str;
     QString strF ="UPDATE edges SET "
