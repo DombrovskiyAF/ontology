@@ -9,7 +9,7 @@ QUpdateableView::QUpdateableView(QWidget *parent) :
 
 void QUpdateableView::submit()
 {
-    // Возможно, эта реализация кажется неуклюжей, но ее советуют разработчики Qt
+    // Р’РѕР·РјРѕР¶РЅРѕ, СЌС‚Р° СЂРµР°Р»РёР·Р°С†РёСЏ РєР°Р¶РµС‚СЃСЏ РЅРµСѓРєР»СЋР¶РµР№, РЅРѕ РµРµ СЃРѕРІРµС‚СѓСЋС‚ СЂР°Р·СЂР°Р±РѕС‚С‡РёРєРё Qt
     // http://developer.qt.nokia.com/forums/viewthread/4531/#27159
     QModelIndex index = currentIndex();
     currentChanged( index, index );

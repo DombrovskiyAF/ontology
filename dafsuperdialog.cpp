@@ -110,7 +110,7 @@ void DafSuperDialog::on_pushButton_2_clicked()
 
 void DafSuperDialog::on_pbAddNode_clicked()
 {
-    dataModel->addNodeToModel(ui->lineEditNodeName->text(), ui->lineEditNodeType->text(), 1, 1, "автор", "remark");
+    dataModel->addNodeToModel(ui->lineEditNodeName->text(), ui->lineEditNodeType->text(), 1, 1, "Р°РІС‚РѕСЂ", "remark");
 }
 
 void DafSuperDialog::on_pbViewGraph_clicked()

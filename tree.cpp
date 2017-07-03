@@ -69,7 +69,7 @@ void Tree::create_update_tree(int who,QString src,QString type,QString dst)
 
 
        int count = dataModel->m_nodes->rowCount();
-       for (int i = 0;i<count;i++){// Заполняется лист всех узлов
+       for (int i = 0;i<count;i++){// Р—Р°РїРѕР»РЅСЏРµС‚СЃСЏ Р»РёСЃС‚ РІСЃРµС… СѓР·Р»РѕРІ
            if (dataModel->m_nodes->index(i,1).data(2).toString()==src){
                 //ListOfNodesForTree << dataModel->m_nodes->index(i,2).data(2).toString();
                 int prov=0;
@@ -84,21 +84,21 @@ void Tree::create_update_tree(int who,QString src,QString type,QString dst)
        }
 
 //       count = dataModel->m_edges->rowCount();
-//       for (int i = 0;i<count;i++){// Заполняется лист конечных узлов
+//       for (int i = 0;i<count;i++){// Р—Р°РїРѕР»РЅСЏРµС‚СЃСЏ Р»РёСЃС‚ РєРѕРЅРµС‡РЅС‹С… СѓР·Р»РѕРІ
 //           if ((dataModel->m_edges->index(i,2).data(2).toString()==type) && (dataModel->m_edges->index(i,3).data(2).toString()==src))
 //            ListOfDstEdgesForTree << dataModel->m_edges->index(i,1).data(2).toString();
 //       }
 
 
 
-//       count = ListOfNodesForTree.size(); // По числу всех узлов
+//       count = ListOfNodesForTree.size(); // РџРѕ С‡РёСЃР»Сѓ РІСЃРµС… СѓР·Р»РѕРІ
 //       for (int i = 0;i<count;i++)
 //       {
 //           bool flag = 0;
 //           int count2 = ListOfDstEdgesForTree.size();
 //           for (int j = 0;j<count2;j++)
-//           {// если узел (каждый из Всех) равен узлу(конечному) то он
-//               //не записывается в исходные узлы (пропускается)
+//           {// РµСЃР»Рё СѓР·РµР» (РєР°Р¶РґС‹Р№ РёР· Р’СЃРµС…) СЂР°РІРµРЅ СѓР·Р»Сѓ(РєРѕРЅРµС‡РЅРѕРјСѓ) С‚Рѕ РѕРЅ
+//               //РЅРµ Р·Р°РїРёСЃС‹РІР°РµС‚СЃСЏ РІ РёСЃС…РѕРґРЅС‹Рµ СѓР·Р»С‹ (РїСЂРѕРїСѓСЃРєР°РµС‚СЃСЏ)
 //               if (ListOfNodesForTree.at(i)==ListOfDstEdgesForTree.at(j)) //
 //               {
 //                    flag = 1;
@@ -107,14 +107,14 @@ void Tree::create_update_tree(int who,QString src,QString type,QString dst)
 //           if (flag==0) ListOfSrcEdgesForTree << ListOfNodesForTree.at(i);
 //       }
 
-       // добавляем все исходные узлы на дерево
+       // РґРѕР±Р°РІР»СЏРµРј РІСЃРµ РёСЃС…РѕРґРЅС‹Рµ СѓР·Р»С‹ РЅР° РґРµСЂРµРІРѕ
        count = ListOfSrcEdgesForTree.size();
        for (int i = 0;i<count;i++)
        {
            QTreeWidgetItem *topLevelItem = new QTreeWidgetItem(ui->treeWidget);
-           // вешаем его на наше дерево в качестве топ узла.
+           // РІРµС€Р°РµРј РµРіРѕ РЅР° РЅР°С€Рµ РґРµСЂРµРІРѕ РІ РєР°С‡РµСЃС‚РІРµ С‚РѕРї СѓР·Р»Р°.
            ui->treeWidget->addTopLevelItem(topLevelItem);
-           // укажем текст итема
+           // СѓРєР°Р¶РµРј С‚РµРєСЃС‚ РёС‚РµРјР°
            topLevelItem->setText(0, ListOfSrcEdgesForTree.at(i));
 
            QAbstractItemModel * qaim_form_nodes = dataModel->m_formNodes->getmodel();

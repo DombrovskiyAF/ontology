@@ -187,17 +187,17 @@ int DafGraph::UseRule(VzRule *r)
 {
     qDebug() << "UseRule: " << r->getName();
     QMapIterator<QString, DafNode*> in(m_nodes);
-    // перебор по всем узлам
+    // РїРµСЂРµР±РѕСЂ РїРѕ РІСЃРµРј СѓР·Р»Р°Рј
     while (in.hasNext())
     {
         in.next();
         DafNode* nA = in.value();
         qDebug() << "UseRule: " << r->getName();
-        // проверяем N.type == А.type ?
+        // РїСЂРѕРІРµСЂСЏРµРј N.type == Рђ.type ?
         if (nA->getNodeType()->getId() == r->getM_A_typeId())
         {
             qDebug() << "  find A: " << nA->getName();
-            // перебор по всем А-B
+            // РїРµСЂРµР±РѕСЂ РїРѕ РІСЃРµРј Рђ-B
             QMap <QString, DafEdge*> *edgesMap;
             if (r->getM_AB_direct())
               edgesMap = nA->getOutEdgesMap();
@@ -218,7 +218,7 @@ int DafGraph::UseRule(VzRule *r)
                     else
                         nB = eAB->getSrcNode();
                     qDebug() << "      find B: " << nB->getName();
-                    // перебор по всем B-C
+                    // РїРµСЂРµР±РѕСЂ РїРѕ РІСЃРµРј B-C
                     QMap <QString, DafEdge*> *edgesBCMap;
                     if (r->getM_BC_direct())
                       edgesBCMap = nB->getOutEdgesMap();
@@ -244,8 +244,8 @@ int DafGraph::UseRule(VzRule *r)
                                       << nC->getName();
                              qDebug() << "=======================";
 
-                             // проверка отсутствия условия "ТО" -----------------------------
-                             // для типа "транзакция"
+                             // РїСЂРѕРІРµСЂРєР° РѕС‚СЃСѓС‚СЃС‚РІРёСЏ СѓСЃР»РѕРІРёСЏ "РўРћ" -----------------------------
+                             // РґР»СЏ С‚РёРїР° "С‚СЂР°РЅР·Р°РєС†РёСЏ"
                              if(r->getRuleType() == rtTranz)
                              {
                                  QMap <QString, DafEdge*> *edgesACMap;
@@ -286,7 +286,7 @@ int DafGraph::UseRule(VzRule *r)
                              }
 
 
-                             // для типа "новый_концепт"
+                             // РґР»СЏ С‚РёРїР° "РЅРѕРІС‹Р№_РєРѕРЅС†РµРїС‚"
                              if(r->getRuleType() == rtNewConcept)
                              {
                                  bool findElse = false;
@@ -376,7 +376,7 @@ int DafGraph::obhod(int rootNodeId)
 
     qDebug() << "root= " << rootNode->getName();
 
-    // пометить всех как new
+    // РїРѕРјРµС‚РёС‚СЊ РІСЃРµС… РєР°Рє new
     //??
 
     QQueue<DafNode*> queue;
@@ -388,10 +388,10 @@ int DafGraph::obhod(int rootNodeId)
         DafNode *node = queue.dequeue();
         node->incOpenCnt();
 
-        //  обработать узел ...
+        //  РѕР±СЂР°Р±РѕС‚Р°С‚СЊ СѓР·РµР» ...
         qDebug() << node->getName();
 
-        // цикл по смежным узлам
+        // С†РёРєР» РїРѕ СЃРјРµР¶РЅС‹Рј СѓР·Р»Р°Рј
         //QList<DafEdge*> edges;
         //getEdgeList(edges);
         QList <DafEdge*>::iterator edge_i;

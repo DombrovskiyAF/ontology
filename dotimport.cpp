@@ -12,9 +12,9 @@ bool dotimport::ImportFromDot(QString FName,QTableWidget *edgestable,QTableWidge
     Edgestable = new QTableWidget ; Edgestable = edgestable;
     Nodesstable = new QTableWidget ; Nodesstable = nodesstable;
     QFile file(FName);
-    QRegExp nodes("\"[А-Яа-я\u0451a-zA-Z0-9_ .]+\"+[^-,]");
-    QRegExp edgesfrom("\"[А-Яа-яa-zA-Z0-9_ .]+\"-");
-    QRegExp labels("label=[А-Яа-яa-zA-Z0-9_ .]+");
+    QRegExp nodes("\"[Рђ-РЇР°-СЏ\u0451a-zA-Z0-9_ .]+\"+[^-,]");
+    QRegExp edgesfrom("\"[Рђ-РЇР°-СЏa-zA-Z0-9_ .]+\"-");
+    QRegExp labels("label=[Рђ-РЇР°-СЏa-zA-Z0-9_ .]+");
     QStringList nodes_list,quant_list;
     QStringList nodes_id_list,quant_id_list;
     for(int i =0;i<model->m_nodeTypes->rowCount(QModelIndex());i++)
@@ -85,12 +85,12 @@ bool dotimport::ImportFromDot(QString FName,QTableWidget *edgestable,QTableWidge
 
                 from = dot_string.left(dot_string.indexOf("-"));
                 from.remove("\"");
-                //qDebug().noquote()<< from +"-"+"� ЕБ� О ИЗ";
+                //qDebug().noquote()<< from +"-"+"Р Р•Р‘Р Рћ РР—";
 
                 to = dot_string.right(dot_string.size()-1 - dot_string.indexOf(">"));
                 to = to.left(to.indexOf("["));
                 to.remove("\"");
-                //qDebug().noquote()<< to +"-"+"� ЕБ� О В";
+                //qDebug().noquote()<< to +"-"+"Р Р•Р‘Р Рћ Р’";
                 QSqlQuery queryid_edge_type;
                 int id;
                      if (!queryid_edge_type.exec("SELECT edge_types.id FROM edge_types WHERE (((edge_name) =\'"+Edgestable->item(i,0)->text()+"\'));"))
