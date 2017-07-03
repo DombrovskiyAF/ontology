@@ -1,7 +1,5 @@
-vz.pro.user
-vz.pro.user.3a0d5be
 bin/data.ldb
 *.mdb
-*.pro.user.a5baba2
 *.db
 *.user
+*.user.*
