@@ -1736,12 +1736,6 @@ void DataModel::createModel()
         qDebug() << "Error: !m_edges->select()";
         return;
     }
-
-    //createDafGraphTypes();
-    //initRules();
-    // LoadRulesList();
-    //UseRules();
-    //ClearRulesList();
 }
 
 QString DataModel::getDBName()
@@ -1755,11 +1749,9 @@ void DataModel::setupView()
     m_formTypes->setNodeTypesModel(m_nodeTypes);
     m_formTypes->setEdgeTypesModel(m_edgeTypes);
     m_formTypes->setQuantTypesModel(m_quantTypes);
-    //m_formTypes->setQ(m_edgeTypes);
     m_formNodes->setNodesModel(m_nodes);
     m_formEdges->setEdgesModel(m_edges);
     m_formRules->setRulesModel(m_rules);
-
     m_formTypes->formnewedgetype->on_setup_view();
     m_formNodes->formnewnode->on_setup_view();
 }

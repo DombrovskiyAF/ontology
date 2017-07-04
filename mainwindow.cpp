@@ -53,7 +53,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionExportDOT, SIGNAL(triggered()), this, SLOT(exportToDot()));
     connect(ui->actionImportGost, SIGNAL(triggered()), this, SLOT(showImportGostForm()));
     connect(ui->actionDaf, SIGNAL(triggered()), this, SLOT(showDaf()));
-    //connect(ui->actionTestFormSD, SIGNAL(triggered()), this, SLOT(showSemchForm()));
     connect(ui->actionTestFormTR, SIGNAL(triggered()), this, SLOT(showTitkinForm()));
     connect(ui->actionFormTypesShow, SIGNAL(triggered()), this, SLOT(formTypesShow()));
     connect(ui->actionFormNodesShow, SIGNAL(triggered()), this, SLOT(formNodesShow()));
