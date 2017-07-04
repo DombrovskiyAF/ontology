@@ -2266,10 +2266,10 @@ bool DataModel::insertNode(QString id_node_type,QString node_name,QString bright
     }
 }
 
-bool DataModel::updateNode(QString p1,QString p2,
-                           QString p3,QString p4,
-                           QString p5,QString p6,
-                           QString p7)
+bool DataModel::updateNode(QString id_node_type, QString node_name,
+                           QString brightness, QString status,
+                           QString author, QString rem,
+                           QString nodes)
 {
     qDebug () << "updateNode";
     QSqlQuery query;
@@ -2283,13 +2283,13 @@ bool DataModel::updateNode(QString p1,QString p2,
             "nodes.rem = '%6' "
             "WHERE nodes.id=%7;";
 
-    str = strF.arg(p1)
-                 .arg(p2)
-                 .arg(p3)
-                 .arg(p4)
-                 .arg(p5)
-                 .arg(p6)
-                 .arg(p7);
+    str = strF.arg(id_node_type)
+                 .arg(node_name)
+                 .arg(brightness)
+                 .arg(status)
+                 .arg(author)
+                 .arg(rem)
+                 .arg(nodes);
     if(query.exec(str)){
         return 1;
     }else{
@@ -2333,10 +2333,10 @@ bool DataModel::insertEdge(QString id_node_src,QString id_edge_type,QString id_n
         return true;
     }
 }
-bool DataModel::updateEdge(QString p1,QString p2,
-                           QString p3,QString p4,
-                           QString p5,QString p6,
-                           QString p7,QString p8)
+bool DataModel::updateEdge(QString id_node_src,QString id_edge_type,
+                           QString id_node_dst,QString quant_id,
+                           QString capacity,QString status,
+                           QString isNew,QString id)
 {
     qDebug () << "updateEdge";
     QSqlQuery query;
@@ -2350,14 +2350,14 @@ bool DataModel::updateEdge(QString p1,QString p2,
             "edges.status=%6, "
             "edges.isNew=%7 "
             "WHERE edges.id=%8;";
-    str = strF.arg(p1)
-            .arg(p2)
-            .arg(p3)
-            .arg(p4)
-            .arg(p5)
-            .arg(p6)
-            .arg(p7)
-            .arg(p8);
+    str = strF.arg(id_node_src)
+            .arg(id_edge_type)
+            .arg(id_node_dst)
+            .arg(quant_id)
+            .arg(capacity)
+            .arg(status)
+            .arg(isNew)
+            .arg(id);
     if(query.exec(str)){
         return 1;
     }else{

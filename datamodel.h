@@ -134,9 +134,9 @@ public:
     /// при неуспехе возвращает false
     bool insertEdge(QString id_node_src,QString id_edge_type,QString id_node_dst,QString quant_id,QString capacity,QString status,QString isNew, int &idEdge);
 
-    bool updateNode(QString p1,QString p2, QString p3,QString p4, QString p5,QString p6, QString p7);
+    bool updateNode(QString p1, QString p2, QString p3, QString p4, QString p5, QString p6, QString nodes);
     bool deleteNode();
-    bool updateEdge(QString p1, QString p2, QString p3, QString p4, QString p5, QString p6, QString p7, QString p8);
+    bool updateEdge(QString id_node_src, QString p2, QString p3, QString p4, QString p5, QString p6, QString p7, QString p8);
     bool deleteEdge();
 
     int getEdgeId(QString id_node_src, QString id_edge_type, QString id_node_dst);
