@@ -28,6 +28,6 @@ DafEdgeType::DafEdgeType(int id,
 
 QString DafEdgeType::getShortName()
 {
-    // todo: выделить имя роли из полного имени
+    // todo: РІС‹РґРµР»РёС‚СЊ РёРјСЏ СЂРѕР»Рё РёР· РїРѕР»РЅРѕРіРѕ РёРјРµРЅРё
     return m_name;
 }

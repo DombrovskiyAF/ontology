@@ -5,7 +5,7 @@
 #include <QString>
 
 
-// параметры обработки ГОСТ
+// РїР°СЂР°РјРµС‚СЂС‹ РѕР±СЂР°Р±РѕС‚РєРё Р“РћРЎРў
 extern QString vzsetNumber;
 extern QString vzsetStringId;
 extern QString vzsetHierarhRole;

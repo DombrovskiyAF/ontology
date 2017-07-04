@@ -19,7 +19,6 @@ SOURCES += main.cpp\
     dafedgetype.cpp \
     dafedge.cpp \
     dafgraph.cpp \
-    semchform.cpp \
     titkinform.cpp \
     exporform.cpp \
     formtypes.cpp \
@@ -61,7 +60,6 @@ HEADERS  += \
     dafedgetype.h \
     dafedge.h \
     dafgraph.h \
-    semchform.h \
     titkinform.h \
     exporform.h \
     formtypes.h \
@@ -95,7 +93,6 @@ HEADERS  += \
 FORMS    += \
     mainwindow.ui \
     dafsuperdialog.ui \
-    semchform.ui \
     titkinform.ui \
     exporform.ui \
     formtypes.ui \

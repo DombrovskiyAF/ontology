@@ -32,7 +32,7 @@ void UseRulesForm::useRules()
     qDebug() << "useRules";
 
     QList<VzEdge> allEdges;
-    // и загрузить в список все ребра
+    // Рё Р·Р°РіСЂСѓР·РёС‚СЊ РІ СЃРїРёСЃРѕРє РІСЃРµ СЂРµР±СЂР°
     QSqlQuery query;
     QString str="SELECT * FROM edges";
     if(query.exec(str))

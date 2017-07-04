@@ -24,7 +24,7 @@ public slots:
 private:
     int m_N;
     int m_perCnt;
-    int m_pers[140][6];// до 5!
+    int m_pers[140][6];// РґРѕ 5!
 
 };
 
