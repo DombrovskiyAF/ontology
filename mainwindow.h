@@ -37,10 +37,7 @@ private slots:
 
     void showImportGostForm();
     void showExportDotForm();
-    void showUseRulesForm();
     void exportToDot();
-
-    //void on_actionTemp_triggered();
 
     void on_action_DOT_triggered();
 

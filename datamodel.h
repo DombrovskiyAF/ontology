@@ -12,10 +12,9 @@
 #define ORGANIZATION_DOMAIN "www.cookmycode.ru"
 #define APPLICATION_NAME "VZ PROJECT"
 
-#include "rule.h"
+//#include "rule.h"
 #include "dafrules.h"
 #include <QList>
-#include "userulesform.h"
 #include "vzedge.h"
 #include "QSettings"
 #include "selectdbwindow.h"
@@ -210,7 +209,7 @@ public:
     QSqlTableModel *m_nodeTypes;
     QSqlTableModel *m_quantTypes;
 
-    QList<RuleEdge> loadRuleEdges(int ruleID);
+    //QList<RuleEdge> loadRuleEdges(int ruleID);
 
     QSqlDatabase db;
 
@@ -222,14 +221,13 @@ public:
 
 private:
 
-    //QList<Rule> loadRules();
-    QList<RuleNode> loadRuleNodes(int ruleID);
+    //QList<RuleNode> loadRuleNodes(int ruleID);
 
     // модели данных
     QSqlRelationalTableModel *m_rules;
-    QSqlRelationalTableModel *m_rulesNodes;
-    QSqlRelationalTableModel *m_rulesEdges;
-    QSqlRelationalTableModel *m_rulesEdgesThen;
+    //QSqlRelationalTableModel *m_rulesNodes;
+    //QSqlRelationalTableModel *m_rulesEdges;
+   // QSqlRelationalTableModel *m_rulesEdgesThen;
 
     QVector <int> edgeType;
 
@@ -240,7 +238,7 @@ private:
     // типы узлов\ребер и правила
     FormTypes *m_formTypes;
     FormRules *m_formRules;
-    UseRulesForm *m_userulesform;
+    //UseRulesForm *m_userulesform;
 
     void disconnectDB();
 

@@ -13,7 +13,6 @@
 //#include "semchform.h"
 #include "exporform.h"
 #include "exportontoform.h"
-#include "userulesform.h"
 #include <QFileDialog>
 #include <QDebug>
 #include "settingsform.h"
@@ -42,7 +41,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //semchForm = new SemchForm(this);
     settingForm = new SettingsForm(this);
     importGostForm = new ImportGostForm(this);
-    useRulesForm = new UseRulesForm(this);
+    //useRulesForm = new UseRulesForm(this);
     rollbackform = new RollbackForm();
     importForm = new importform(dataModel,settingForm->settings,settingForm->settings_edges,this);
     //exportOntoForm = new ExportOntoForm(this);
@@ -58,7 +57,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionFormNodesShow, SIGNAL(triggered()), this, SLOT(formNodesShow()));
     connect(ui->actionFormEdgesShow, SIGNAL(triggered()), this, SLOT(formEdgesShow()));
     connect(ui->actionFormRulesShow, SIGNAL(triggered()), this, SLOT(formRulesShow()));
-    connect(ui->actionUseRulesFormShow, SIGNAL(triggered()), this, SLOT(showUseRulesForm()));
     connect(ui->actionSettings, SIGNAL(triggered()), this, SLOT(formSettingsShow()));
 
     if (dataModel->getSettings()->value("settings/autoload", false).toBool()) {
@@ -73,11 +71,6 @@ MainWindow::~MainWindow()
 {
     delete dataModel;
     delete ui;
-}
-
-void MainWindow::showUseRulesForm()
-{
-    useRulesForm->show();
 }
 
 void MainWindow::formSettingsShow()

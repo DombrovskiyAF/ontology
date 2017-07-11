@@ -83,7 +83,6 @@ DataModel::DataModel()
     m_formEdges = new FormEdges();
     m_formRules = new FormRules();
     m_graph = new DafGraph();
-    m_userulesform = new UseRulesForm();
     sdw = new selectdbwindow();
 }
 
@@ -1802,6 +1801,7 @@ void DataModel::showFormEdges()
 
 }
 */
+/*
 QList<RuleNode> DataModel::loadRuleNodes(int ruleID)
 {
     QList<RuleNode> list;
@@ -1851,7 +1851,7 @@ QList<RuleEdge> DataModel::loadRuleEdges(int ruleID) //Bad quant
     }
     return list;
 }
-
+*/
 
 void DataModel::LoadDafGraph()
 {

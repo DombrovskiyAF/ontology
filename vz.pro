@@ -31,7 +31,6 @@ SOURCES += main.cpp\
     dafrules.cpp \
     rule.cpp \
     settingsform.cpp \
-    userulesform.cpp \
     exportontoform.cpp \
     settingsadd.cpp \
     vzedge.cpp \
@@ -72,7 +71,6 @@ HEADERS  += \
     dafrules.h \
     rule.h \
     settingsform.h \
-    userulesform.h \
     exportontoform.h \
     settingsadd.h \
     vzedge.h \
@@ -100,7 +98,6 @@ FORMS    += \
     formnodes.ui \
     formrules.ui \
     settingsform.ui \
-    userulesform.ui \
     exportontoform.ui \
     settingsadd.ui \
     ruleaddwidget.ui \
