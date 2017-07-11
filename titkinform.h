@@ -4,7 +4,7 @@
 #include <QDialog>
 #include <QString>
 
-#include "dafgraph.h"
+#include "dafrules.h"
 
 namespace Ui {
 class TitkinForm;
