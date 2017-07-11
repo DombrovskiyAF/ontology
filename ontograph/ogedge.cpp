@@ -1,7 +1,7 @@
-#include "dafedge.h"
+#include "ogedge.h"
 
-#include "dafedgetype.h"
-#include "dafnode.h"
+#include "ogedgetype.h"
+#include "ognode.h"
 
 DafEdge::DafEdge()
 {

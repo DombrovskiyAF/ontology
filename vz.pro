@@ -12,13 +12,6 @@ SOURCES += main.cpp\
     qupdateableview.cpp \
     mainwindow.cpp \
     datamodel.cpp \
-    dafgraphelement.cpp \
-    dafnodetype.cpp \
-    dafnode.cpp \
-    dafsuperdialog.cpp \
-    dafedgetype.cpp \
-    dafedge.cpp \
-    dafgraph.cpp \
     titkinform.cpp \
     exporform.cpp \
     formtypes.cpp \
@@ -28,7 +21,6 @@ SOURCES += main.cpp\
     gostblock.cpp \
     perestanovka.cpp \
     formrules.cpp \
-    dafrules.cpp \
     rule.cpp \
     settingsform.cpp \
     exportontoform.cpp \
@@ -46,19 +38,20 @@ SOURCES += main.cpp\
     formnewedgetype.cpp \
     rollbackform.cpp \
     similarity.cpp \
-    selectdbwindow.cpp
+    selectdbwindow.cpp \
+    ontograph/ogedge.cpp \
+    ontograph/ogedgetype.cpp \
+    ontograph/oggraph.cpp \
+    ontograph/oggraphelement.cpp \
+    ontograph/ognode.cpp \
+    ontograph/ognodetype.cpp \
+    ontograph/ogrules.cpp \
+    ontograph/ogsuperdialog.cpp
 
 HEADERS  += \
     qupdateableview.h \
     mainwindow.h \
     datamodel.h \
-    dafgraphelement.h \
-    dafnodetype.h \
-    dafnode.h \
-    dafsuperdialog.h \
-    dafedgetype.h \
-    dafedge.h \
-    dafgraph.h \
     titkinform.h \
     exporform.h \
     formtypes.h \
@@ -68,7 +61,6 @@ HEADERS  += \
     gostblock.h \
     perestanovka.h \
     formrules.h \
-    dafrules.h \
     rule.h \
     settingsform.h \
     exportontoform.h \
@@ -86,11 +78,18 @@ HEADERS  += \
     formnewedgetype.h \
     rollbackform.h \
     similarity.h \
-    selectdbwindow.h
+    selectdbwindow.h \
+    ontograph/ogedge.h \
+    ontograph/ogedgetype.h \
+    ontograph/oggraph.h \
+    ontograph/oggraphelement.h \
+    ontograph/ognode.h \
+    ontograph/ognodetype.h \
+    ontograph/ogrules.h \
+    ontograph/ogsuperdialog.h
 
 FORMS    += \
     mainwindow.ui \
-    dafsuperdialog.ui \
     titkinform.ui \
     exporform.ui \
     formtypes.ui \
@@ -111,7 +110,8 @@ FORMS    += \
     formnewedgetype.ui \
     rollbackform.ui \
     similarity.ui \
-    selectdbwindow.ui
+    selectdbwindow.ui \
+    ontograph/ogsuperdialog.ui
 
 RESOURCES += \
     vz.qrc

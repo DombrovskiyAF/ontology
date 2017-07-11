@@ -1,4 +1,4 @@
-#include "dafedgetype.h"
+#include "ogedgetype.h"
 
 DafEdgeType::DafEdgeType()
 {

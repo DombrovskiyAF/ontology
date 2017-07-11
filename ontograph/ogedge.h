@@ -1,7 +1,7 @@
 #ifndef DAFEDGE_H
 #define DAFEDGE_H
 
-#include "dafgraphelement.h"
+#include "oggraphelement.h"
 
 class DafNode;
 class DafEdgeType;

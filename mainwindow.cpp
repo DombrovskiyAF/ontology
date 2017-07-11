@@ -7,8 +7,8 @@
 #include "datamodel.h"
 #include "dotimport.h"
 #include "importform.h"
-#include "dafgraph.h"
-#include "dafsuperdialog.h"
+//#include "dafgraph.h"
+//#include "dafsuperdialog.h"
 #include "titkinform.h"
 //#include "semchform.h"
 #include "exporform.h"
@@ -20,7 +20,7 @@
 //DataModel *dataModel;
 importform *importForm;
 SettingsForm *settingForm;
-DafSuperDialog *dafForm;
+//DafSuperDialog *dafForm;
 TitkinForm *titkinForm;
 //SemchForm *semchForm;
 ImportGostForm *importGostForm;
@@ -36,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     dataModel = new DataModel();
-    dafForm = new DafSuperDialog(this);
+    //dafForm = new DafSuperDialog(this);
     titkinForm = new TitkinForm(this);
     //semchForm = new SemchForm(this);
     settingForm = new SettingsForm(this);
@@ -51,7 +51,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionOpenDB, SIGNAL(triggered()), this, SLOT(openDB()));
     connect(ui->actionExportDOT, SIGNAL(triggered()), this, SLOT(exportToDot()));
     connect(ui->actionImportGost, SIGNAL(triggered()), this, SLOT(showImportGostForm()));
-    connect(ui->actionDaf, SIGNAL(triggered()), this, SLOT(showDaf()));
+    //connect(ui->actionDaf, SIGNAL(triggered()), this, SLOT(showDaf()));
     connect(ui->actionTestFormTR, SIGNAL(triggered()), this, SLOT(showTitkinForm()));
     connect(ui->actionFormTypesShow, SIGNAL(triggered()), this, SLOT(formTypesShow()));
     connect(ui->actionFormNodesShow, SIGNAL(triggered()), this, SLOT(formNodesShow()));
@@ -216,7 +216,7 @@ void MainWindow::openDB_fromsettings(QString qst)
 
 void MainWindow::showDaf()
 {
-    dafForm->show();
+    //dafForm->show();
 }
 
 void MainWindow::exportToDot()

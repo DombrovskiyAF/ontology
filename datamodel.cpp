@@ -5,8 +5,8 @@
 #include "formnodes.h"
 #include "formedges.h"
 #include "formrules.h"
-#include "dafgraph.h"
-#include "dafrules.h"
+//#include "dafgraph.h"
+//#include "dafrules.h"
 #include "settingsform.h"
 #include "ui_settingsform.h"
 #include "gostblock.h"
@@ -82,7 +82,7 @@ DataModel::DataModel()
     m_formNodes = new FormNodes();
     m_formEdges = new FormEdges();
     m_formRules = new FormRules();
-    m_graph = new DafGraph();
+    //m_graph = new DafGraph();
     sdw = new selectdbwindow();
 }
 
@@ -99,7 +99,7 @@ DataModel::~DataModel()
     delete m_formEdges;
     delete m_quantTypes;
     delete m_formRules;
-    delete m_graph;
+    //delete m_graph;
 
     delete settings;
 }
@@ -219,13 +219,13 @@ void DataModel::logMessage(QString message)
 }
 
 
-int DataModel::getNodeTypeId(QString nodeTypeName)
-{
-    if (m_graph == NULL)
-        return -1;
+//int DataModel::getNodeTypeId(QString nodeTypeName)
+//{
+//    if (m_graph == NULL)
+//        return -1;
 
-    return m_graph->getNodeTypeId(nodeTypeName);
-}
+//    return m_graph->getNodeTypeId(nodeTypeName);
+//}
 
 int DataModel::getNodeInf(QString nodeName, int &nodeTypeId)
 {
@@ -404,7 +404,7 @@ void DataModel::selectNodes()
         return;
     }
 }
-
+/*
 int DataModel::addNodeToModel(QString name, QString typeName, int bright, int status, QString author, QString rem, int id)
 {
     qDebug() << "start addNodeToModel: " << name << "(" << typeName << ")";
@@ -456,7 +456,7 @@ int DataModel::addNodeToModel(QString name, QString typeName, int bright, int st
     qDebug() << "normal stop addNodeToModel";
     return 0;
 }
-
+*/
 bool DataModel::submitAll()
 {
     submitEdges();
@@ -1496,6 +1496,7 @@ bool DataModel::submitEdges()
     return true;
 }
 
+/*
 void DataModel::createDafGraphTypes()
 {
     int numRows;
@@ -1537,7 +1538,8 @@ void DataModel::createDafGraphTypes()
         m_graph->addEdgeType( name, srcTypeName, dstTypeName, "mult", id);
     }
 }
-
+*/
+/*
 void DataModel::createDafGraph()
 {
     int numRows;
@@ -1589,7 +1591,7 @@ void DataModel::createDafGraph()
     }
 
 }
-
+*/
 void DataModel::deleteModel()
 {
     if (m_nodeTypes != NULL) delete m_nodeTypes;
@@ -1852,7 +1854,7 @@ QList<RuleEdge> DataModel::loadRuleEdges(int ruleID) //Bad quant
     return list;
 }
 */
-
+/*
 void DataModel::LoadDafGraph()
 {
     m_graph->clearGraphData();
@@ -1861,7 +1863,7 @@ void DataModel::LoadDafGraph()
     this->createDafGraphTypes();
     this->createDafGraph();
 }
-
+*/
 void DataModel::LoadRulesList()
 {
 
@@ -1987,8 +1989,8 @@ void DataModel::LoadRulesList()
 
 void DataModel::UseRule(VzRule* rule, QList<VzEdge> *inEdges, QList<VzEdge> *outEdges)
 {
-    qDebug() << "use rule, id== " << rule->getId();
-    m_graph->UseRule(rule);
+    //qDebug() << "use rule, id== " << rule->getId();
+    //m_graph->UseRule(rule);
 }
 
 void DataModel::UseRule(int index, QList<VzEdge> *inEdges, QList<VzEdge> *outEdges)

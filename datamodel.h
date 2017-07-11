@@ -13,7 +13,7 @@
 #define APPLICATION_NAME "VZ PROJECT"
 
 //#include "rule.h"
-#include "dafrules.h"
+#include "ontograph\ogrules.h"
 #include <QList>
 #include "vzedge.h"
 #include "QSettings"

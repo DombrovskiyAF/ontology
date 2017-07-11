@@ -1,7 +1,7 @@
 #ifndef DAFGRAPH_H
 #define DAFGRAPH_H
 
-#include "dafgraphelement.h"
+#include "oggraphelement.h"
 
 #include <QMap>
 

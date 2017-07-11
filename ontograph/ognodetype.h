@@ -1,7 +1,7 @@
 #ifndef DAFNODETYPE_H
 #define DAFNODETYPE_H
 
-#include "dafgraphelement.h"
+#include "oggraphelement.h"
 
 class DafNodeType : public DafGraphElement
 {

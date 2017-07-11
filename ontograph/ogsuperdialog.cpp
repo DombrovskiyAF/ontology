@@ -1,13 +1,13 @@
-#include "dafsuperdialog.h"
-#include "ui_dafsuperdialog.h"
+#include "ogsuperdialog.h"
+#include "ui_ogsuperdialog.h"
 
 #include "datamodel.h"
 
-#include "dafnodetype.h"
-#include "dafnode.h"
-#include "dafedgetype.h"
-#include "dafedge.h"
-#include "dafgraph.h"
+#include "ognodetype.h"
+#include "ognode.h"
+#include "ogedgetype.h"
+#include "ogedge.h"
+#include "oggraph.h"
 #include <QDebug>
 
 //QList<VzRule*> rules;
@@ -31,9 +31,10 @@ void DafSuperDialog::obhod()
     //int rootNodeId = ui->spinBox->value();
     //graph->obhod(rootNodeId);
 }
-
+/*
 void DafSuperDialog::start()
 {
+
     //graph->loadData();
     //graph->loadRules();
     qDebug() << "start..";
@@ -94,7 +95,7 @@ void DafSuperDialog::start()
     }
 
 }
-
+*/
 //void DafSuperDialog::on_pushButton_clicked()
 //{
 //    //graph->toFile(NULL);
@@ -103,14 +104,14 @@ void DafSuperDialog::start()
 void DafSuperDialog::on_pushButton_2_clicked()
 {
     ui->textEdit->clear();
-    start();
+    //start();
     //int rootNodeId = ui->spinBox->value();
     //graph->obhod_deep(rootNodeId);
 }
 
 void DafSuperDialog::on_pbAddNode_clicked()
 {
-    dataModel->addNodeToModel(ui->lineEditNodeName->text(), ui->lineEditNodeType->text(), 1, 1, "автор", "remark");
+    //dataModel->addNodeToModel(ui->lineEditNodeName->text(), ui->lineEditNodeType->text(), 1, 1, "автор", "remark");
 }
 
 void DafSuperDialog::on_pbViewGraph_clicked()

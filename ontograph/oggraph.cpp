@@ -1,9 +1,9 @@
-#include "dafgraph.h"
+#include "oggraph.h"
 
-#include "dafedge.h"
-#include "dafedgetype.h"
-#include "dafnode.h"
-#include "dafnodetype.h"
+#include "ogedge.h"
+#include "ogedgetype.h"
+#include "ognode.h"
+#include "ognodetype.h"
 #include "datamodel.h"
 
 #include <QDebug>

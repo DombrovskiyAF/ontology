@@ -16,8 +16,8 @@ public:
     ~DafSuperDialog();
 
 public slots:
-    void start();
-    void obhod();
+    //void start();
+    //void obhod();
 
 private slots:
    // void on_pushButton_clicked();

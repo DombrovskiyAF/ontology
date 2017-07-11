@@ -1,8 +1,8 @@
 #ifndef DAFEDGETYPE_H
 #define DAFEDGETYPE_H
 
-#include "dafgraphelement.h"
-#include "dafnodetype.h"
+#include "oggraphelement.h"
+#include "ognodetype.h"
 
 class DafEdgeType : public DafGraphElement
 {

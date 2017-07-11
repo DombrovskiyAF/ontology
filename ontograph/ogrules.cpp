@@ -1,8 +1,8 @@
-#include "dafrules.h"
+#include "ogrules.h"
 #include <QSqlQuery>
 #include <QVariant>
 #include "datamodel.h"
-#include <dafgraph.h>
+//#include <oggraph.h>
 #include <QDebug>
 #include <QSqlError>
 

@@ -4,7 +4,7 @@
 #include <QDialog>
 #include <QString>
 
-#include "dafrules.h"
+#include "ontograph\ogrules.h"
 
 namespace Ui {
 class TitkinForm;

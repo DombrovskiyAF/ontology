@@ -1,10 +1,10 @@
 #ifndef DAFNODE_H
 #define DAFNODE_H
 
-#include "dafgraphelement.h"
+#include "oggraphelement.h"
 
-#include "dafnodetype.h"
-#include "dafedge.h"
+#include "ognodetype.h"
+#include "ogedge.h"
 
 #include <QMap>
 
