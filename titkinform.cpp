@@ -2,12 +2,7 @@
 #include "ui_titkinform.h"
 #include "qsqlrelationaltablemodel.h"
 #include "qdebug.h"
-#include "dafgraph.h"
-#include "dafnodetype.h"
-#include "dafedgetype.h"
 #include "qlist.h"
-#include "dafnode.h"
-#include "dafedge.h"
 #include "datamodel.h"
 #include "QSqlQuery"
 #include "QList"
@@ -56,7 +51,7 @@ QStringList getNames(QString aID, QString bID)
 }
 
 int TitkinForm::insert_edge(QString a,QString ac,QString c,VzRule *r)
-{    
+{
     QString str="SELECT id FROM edges WHERE id_node_src="+a;
     str+=" AND id_edge_type="+ac;
     str+=" AND id_node_dst="+c;
