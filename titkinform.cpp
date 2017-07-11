@@ -13,7 +13,7 @@
 #include "QList"
 #include "QSqlError"
 #include <QStringList>
-
+//test
 TitkinForm::TitkinForm(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::TitkinForm)
