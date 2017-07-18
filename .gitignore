@@ -4,4 +4,4 @@ bin/data.ldb
 *.mdb
 *.db
 *.*.user
-*.user
+
