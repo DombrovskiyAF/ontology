@@ -13,16 +13,10 @@ void formGraphShow::exec(QString GV_DIR)
     QProcess *dot = new QProcess();
     GVDIR = GV_DIR;
     qDebug() << GVDIR;
-    dot->start("cmd");
-    QString Write("cd " + GVDIR + '\n');
-    qDebug() << Write;
-    dot->write(Write.toUtf8());
-    Write = "dot.exe -Tpng temp.dot -o temp.png\n";
-    dot->write(Write.toUtf8());
-    Write = "exit";
-    dot->write(Write.toUtf8());
-
-    dot->waitForFinished(200);
+    QString a(GVDIR+"/dot.exe -Tpng \""+GVDIR+"/temp.dot\" "+"-o \""+GVDIR+"/temp.png\" ");
+    qDebug().noquote() << a;
+    dot->start(a);
+    dot->waitForFinished();
     QGraphicsScene *graph = new QGraphicsScene();
     qDebug() << GVDIR+"\temp.png";
     graph->addPixmap(QPixmap(GVDIR+"/temp.png"));
