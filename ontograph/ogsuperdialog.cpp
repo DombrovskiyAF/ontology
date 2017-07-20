@@ -26,7 +26,7 @@ DafSuperDialog::~DafSuperDialog()
     delete ui;
 }
 
-void DafSuperDialog::obhod()
+/*void DafSuperDialog::obhod()
 {
     //int rootNodeId = ui->spinBox->value();
     //graph->obhod(rootNodeId);

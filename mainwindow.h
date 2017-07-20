@@ -28,6 +28,7 @@ private slots:
     void formEdgesShow();
     void formRulesShow();
     void formSettingsShow();
+    void formGraphshow();
 
     void openDB();
     void openDB_fromsettings(QString qst);
@@ -49,6 +50,7 @@ private slots:
 
 
     void on_actionOpenDB_triggered();
+
 
 private:
     Ui::MainWindow *ui;

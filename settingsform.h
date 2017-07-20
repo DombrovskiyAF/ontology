@@ -87,6 +87,8 @@ private slots:
 
      void on_nodetext_color_clicked();
 
+     void on_open_Gv_clicked();
+
 private:
     Ui::SettingsForm *ui;
 

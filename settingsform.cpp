@@ -81,6 +81,7 @@ SettingsForm::SettingsForm(QWidget *parent) :
     ui->line_color->setStyleSheet("QPushButton { background-color: #000000; }");
     ui->back_color->setStyleSheet("QPushButton { background-color: #000000; }");
 
+
     connect(ui->edgestree,SIGNAL(customContextMenuRequested(QPoint)),this,SLOT(custom_menu_2(QPoint)));
     connect(ui->uzeltree,SIGNAL(customContextMenuRequested(QPoint)),this,SLOT(custom_menu_1(QPoint)));
     connect(ui->quant_list,SIGNAL(customContextMenuRequested(QPoint)),this,SLOT(custom_menu_quant(QPoint)));
@@ -88,6 +89,7 @@ SettingsForm::SettingsForm(QWidget *parent) :
     settings_edges = new QSettings(QCoreApplication::applicationDirPath()+"/edgesettings.ini",QSettings::IniFormat);
     settings_edges->setIniCodec("Windows-1251");
     settings->setIniCodec("Windows-1251");
+    ui->line_graphviz->setText(settings->value("settings/gv_dir").toString());
     refresh_list();
     //ui->treeWidget->setAllColumnsShowFocus(1);
 
@@ -579,4 +581,15 @@ void SettingsForm::on_nodetext_color_clicked()
         ui->nodetext_color->setStyleSheet("QPushButton { background-color: "+color.name()+"; }");
         nodetext_color = color.name();
     }
+}
+
+void SettingsForm::on_open_Gv_clicked()
+{
+    QFileDialog *open_Gv = new QFileDialog();
+    open_Gv->setFileMode(QFileDialog::Directory);
+    open_Gv->exec();
+    QString GV_DIR(open_Gv->directory().path());
+    ui->line_graphviz->setText(GV_DIR);
+    settings->setValue("settings/gv_dir",GV_DIR);
+
 }

@@ -17,6 +17,7 @@
 #include <QDebug>
 #include "settingsform.h"
 #include "rollbackform.h"
+#include "formgraphshow.h"
 //DataModel *dataModel;
 importform *importForm;
 SettingsForm *settingForm;
@@ -27,6 +28,7 @@ ImportGostForm *importGostForm;
 ExportOntoForm *exportOntoForm;
 UseRulesForm *useRulesForm;
 RollbackForm *rollbackform;
+formGraphShow *FormGraphShow;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -36,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     dataModel = new DataModel();
+    FormGraphShow = new formGraphShow();
     //dafForm = new DafSuperDialog(this);
     titkinForm = new TitkinForm(this);
     //semchForm = new SemchForm(this);
@@ -58,6 +61,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionFormEdgesShow, SIGNAL(triggered()), this, SLOT(formEdgesShow()));
     connect(ui->actionFormRulesShow, SIGNAL(triggered()), this, SLOT(formRulesShow()));
     connect(ui->actionSettings, SIGNAL(triggered()), this, SLOT(formSettingsShow()));
+    connect(ui->actionShowGraph, SIGNAL (triggered()), this, SLOT(formGraphshow()));
 
     if (dataModel->getSettings()->value("settings/autoload", false).toBool()) {
         qDebug () << "load Settings";
@@ -76,6 +80,17 @@ MainWindow::~MainWindow()
 void MainWindow::formSettingsShow()
 {
     settingForm->show();
+}
+
+void MainWindow::formGraphshow()
+{
+    QString DOT_DIR(settingForm->settings->value("settings/gv_dir").toString()+"/bin/temp.dot");
+    QString GVDIR (settingForm->settings->value("settings/gv_dir").toString()+"/bin" );
+    dataModel->importToDot(DOT_DIR);
+    FormGraphShow->show();
+    FormGraphShow->exec(GVDIR);
+
+
 }
 
 void MainWindow::formTypesShow()
@@ -259,3 +274,4 @@ void MainWindow::on_actionOpenDB_triggered()
 {
 
 }
+
