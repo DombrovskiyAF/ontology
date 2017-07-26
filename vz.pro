@@ -46,7 +46,8 @@ SOURCES += main.cpp\
     ontograph/ognode.cpp \
     ontograph/ognodetype.cpp \
     ontograph/ogrules.cpp \
-    ontograph/ogsuperdialog.cpp
+    ontograph/ogsuperdialog.cpp \
+    formgraphshow.cpp
 
 HEADERS  += \
     qupdateableview.h \
@@ -86,7 +87,8 @@ HEADERS  += \
     ontograph/ognode.h \
     ontograph/ognodetype.h \
     ontograph/ogrules.h \
-    ontograph/ogsuperdialog.h
+    ontograph/ogsuperdialog.h \
+    formgraphshow.h
 
 FORMS    += \
     mainwindow.ui \
@@ -111,7 +113,8 @@ FORMS    += \
     rollbackform.ui \
     similarity.ui \
     selectdbwindow.ui \
-    ontograph/ogsuperdialog.ui
+    ontograph/ogsuperdialog.ui \
+    formgraphshow.ui
 
 RESOURCES += \
     vz.qrc

@@ -1144,6 +1144,7 @@ bool DataModel::importToDot(QString fileName)
 
     QFile file(fileName);
     QTextStream stream(&file);
+    stream.setCodec("UTF-8");
     if (!file.open(QIODevice::WriteOnly|QIODevice::Text))
     {
         qDebug() << "error open file";
@@ -1152,6 +1153,7 @@ bool DataModel::importToDot(QString fileName)
 
     stream << "digraph G" << endl;
     stream << "{" << endl;
+    stream << "charset=\"utf8\";" << endl;
     stream << "rankdir=BT;" << endl;
     stream << "node[color=black,fontsize=12];" << endl;
      stream << "edge[color=black,fontsize=12];" << endl;
@@ -1471,12 +1473,7 @@ bool DataModel::importToDot(QString fileName)
 
     stream << "}" << endl;
     file.close();
-    QProcess dot;
-    fileName.remove(fileName.length()-3,3);
-    dot.start("graphviz\\bin\\dot.exe -Tpng -o"+fileName+"png "+fileName+"dot");
-    dot.waitForFinished(-1);
-    qDebug()<<fileName;
-    qDebug()<<"finish"<<dot.exitCode();
+
 
     return true;
 }

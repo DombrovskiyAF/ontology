@@ -1,4 +1,4 @@
-#include "ogsuperdialog.h"
+﻿#include "ogsuperdialog.h"
 #include "ui_ogsuperdialog.h"
 
 #include "datamodel.h"
@@ -26,11 +26,6 @@ DafSuperDialog::~DafSuperDialog()
     delete ui;
 }
 
-//void DafSuperDialog::obhod()
-//{
-    //int rootNodeId = ui->spinBox->value();
-    //graph->obhod(rootNodeId);
-//}
 /*
 void DafSuperDialog::start()
 {
